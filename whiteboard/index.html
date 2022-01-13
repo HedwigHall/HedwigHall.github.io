@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/navigation/modernNav.css">
+<link rel="stylesheet" href="/css/blog/blog.css">
+<script>
+setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => {if(document.getElementsByTagName("nav")[0].className == "collapsed"){document.getElementsByTagName("nav")[0].className = "expanded"} else {document.getElementsByTagName("nav")[0].className = "collapsed"}}}, 1000);
+</script>
+</head>
+<body>
+  <nav>
+    <hamburger><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 16 16"><path d="M3 4h10a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm10 3H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2zm0 5H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"></path></svg></hamburger><navigation><a href="http://hh">Home</a></nav>
+  <script charset="UTF-8">
+  window.addEventListener('load', () => {
+    Settings = [{
+      lineWidth: 10,
+      lineCap: "round",
+      strokeStyle: "#FFFFFF"
+    },{
+      lineWidth: 10,
+      lineCap: "round",
+      strokeStyle: "#FFFF00"
+    },{
+      lineWidth: 10,
+      lineCap: "round",
+      strokeStyle: "#1F293B"
+    }];
+    const canvas = document.querySelector("#Whiteboard");
+    const ctx = canvas.getContext("2d");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    var drawing = false;
+    function startPosition(e){
+      Button = e.button
+      if(e.button == 0){
+        if(document.querySelector(".ContextMenu:hover") == null){
+          if(!document.getElementsByClassName("ContextMenu")[0].hidden){
+            document.getElementsByClassName("ContextMenu")[0].hidden = true;
+          }else{
+            drawing = true;
+            draw(e);
+          }
+        }
+      } else if(e.button == 1){
+        if(document.querySelector(".ContextMenu:hover") == null){
+          if(!document.getElementsByClassName("ContextMenu")[0].hidden){
+            document.getElementsByClassName("ContextMenu")[0].hidden = true;
+          }else{
+            drawing = true;
+            draw(e);
+          }
+        }
+      } else if(e.button == 2){
+        e.preventDefault();
+        if(document.getElementById("CtrlController").checked && !e.ctrlKey){
+          if(document.querySelector(".ContextMenu:hover") == null){
+            if(!document.getElementsByClassName("ContextMenu")[0].hidden){
+              document.getElementsByClassName("ContextMenu")[0].hidden = true;
+            }else{
+              drawing = true;
+              draw(e);
+            }
+          }
+        } else {
+          document.getElementsByClassName("ContextMenu")[0].style.left = e.clientX+"px";
+          document.getElementsByClassName("ContextMenu")[0].style.top = e.clientY+"px";
+          document.getElementsByClassName("ContextMenu")[0].hidden = false;
+        }
+
+      };
+    };
+    function endPosition(){
+		drawing = false;
+		ctx.beginPath();
+    };
+    function draw(e){
+      if(!drawing) return;
+      ctx.lineWidth = Settings[Button].lineWidth;
+      ctx.lineCap = Settings[Button].lineCap;
+      ctx.strokeStyle = Settings[Button].strokeStyle;
+      ctx.lineTo(e.clientX, e.clientY);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX, e.clientY);
+    };
+    canvas.addEventListener("mousedown", startPosition);
+    canvas.addEventListener("mouseup", endPosition);
+    canvas.addEventListener("mousemove", draw);
+    UpdatePen('SizeController0');
+    UpdatePen('ColorController0');
+    UpdatePen('SizeController1');
+    UpdatePen('ColorController1');
+    UpdatePen('SizeController2');
+    UpdatePen('ColorController2');
+    HideNav();
+  });
+  window.addEventListener('resize', () => {
+    const canvas = document.querySelector("#Whiteboard");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+  });
+  document.oncontextmenu = function(e){
+      e.preventDefault();
+  }
+  document.body.addEventListener("wheel", e=>{
+    if(e.ctrlKey||e.altKey)
+      e.preventDefault();
+  });
+  </script>
+  <style>
+    html {
+      overflow: hidden;
+      user-select: none;
+    }
+    #Whiteboard {
+      cursor: crosshair;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100vw;
+      height: 100vh;
+      padding: 0px;
+      margin: 0px;
+    }
+  </style>
+  <blog-content>
+  <canvas id="Whiteboard"></canvas>
+</blog-content>
+<ul class="ContextMenu" style="top: 0px;left: 0px" hidden="">
+  <!-- Context Menu -->
+  <style>
+/* Context Menu */
+    .ContextMenu{
+    background-color: #1F293B;
+    color: #6282B2;
+    width: fit-content;
+    position: absolute;
+    border-radius: 12.5px;
+    list-style-type:none;
+    padding: 1px;
+    margin: 0px;
+  }
+  hr{
+    background-color: #314159;
+    height: 1px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+  }
+  li{
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #1F293B;
+  }
+  li:hover{
+    background-color: #314159;
+  }
+  li:nth-child(2){
+    border-top-left-radius: 12.5px;
+    border-top-right-radius: 12.5px;
+  }
+  li:last-child{
+  border-bottom-left-radius: 12.5px;
+  border-bottom-right-radius: 12.5px;
+}
+  .SizeController, .ColorController{
+    margin: 0px;
+    background-color: #1F293B;
+    border: solid 1px #1F293B;
+    border-radius: 12.5px;
+    -moz-appearance: textfield;
+    color: #FFFFFF;
+}
+li:hover .SizeController, .SizeController:active, li:hover .ColorController, .ColorController:active{
+    background-color: #314159;
+    border: solid 1px #FFFF00;
+    border-radius: 12.5px;
+    color: #FFFF00;
+}
+.Checkbox {
+  margin: 0px;
+  appearance: none;
+  background-color: #1F293B;
+  font: inherit;
+  color: #FFF;
+  width: 0.75em;
+  height: 0.75em;
+  border: 1px solid #314159;
+  border-radius: 0.15em;
+  display: inline grid;
+  place-content: center;
+}
+.Checkbox::before {
+  content: "";
+  top: 0.1em;
+  left: 0.1em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.15em;
+  transform: scale(0);
+  transform-origin: bottom left;
+  background-color: #6282B2;
+}
+.Checkbox:checked::before {
+  transform: scale(1);
+}
+.Checkbox:focus {
+  outline: none;
+  outline-offset: max(2px, 0.15em);
+}
+.Checkbox:hover::before{
+  background-color: #FFF;
+}
+li:hover .Checkbox{
+  background-color: #314159;
+  border: 1px solid #FFFF00;
+}
+</style>
+<li class="ContextMenuItem">Left Click</li>
+<hr>
+<li class="ContextMenuItem"><form action="javascript:UpdatePen('SizeController0');">
+  <label for="SizeController0">Size:	</label>
+  <input type="text" id="SizeController0" class="SizeController" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number">
+</form></li>
+<hr>
+<li class="ContextMenuItem"><form action="javascript:UpdatePen('ColorController0');">
+  <label for="ColorController0">Color:	</label>
+  <input type="text" id="ColorController0" class="ColorController" size="7" maxlength="7" value="#FFFFFF" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color">
+</form></li>
+<hr>
+<li class="ContextMenuItem">Middle Click</li>
+<hr>
+<li class="ContextMenuItem"><form action="javascript:UpdatePen('SizeController1');">
+  <label for="SizeController1">Size:	</label>
+  <input type="text" id="SizeController1" class="SizeController" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number">
+</form></li>
+<hr>
+<li class="ContextMenuItem"><form action="javascript:UpdatePen('ColorController1');">
+  <label for="ColorController1">Color:	</label>
+  <input type="text" id="ColorController1" class="ColorController" size="7" maxlength="7" value="#FFFF00" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color">
+</form></li>
+<hr>
+<li class="ContextMenuItem RightButton" hidden="">Right Click</li>
+<hr class="RightButton" hidden="">
+<li class="RightButton ContextMenuItem" hidden=""><form action="javascript:UpdatePen('SizeController2');">
+  <label for="SizeController2">Size:	</label>
+  <input type="text" id="SizeController2" class="SizeController" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number">
+</form></li>
+<hr class="RightButton" hidden="">
+<li class="RightButton ContextMenuItem" hidden=""><form action="javascript:UpdatePen('ColorController2');">
+  <label for="ColorController2">Color:	</label>
+  <input type="text" id="ColorController2" class="ColorController" size="7" maxlength="7" value="#1F293B" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color">
+</form></li>
+<hr class="RightButton" hidden="">
+<li class="ContextMenuItem">
+  <label for="NavController">Hide Nav:	</label>
+  <input type="checkbox" id="NavController" class="Checkbox" oninput="HideNav();">
+</li>
+<hr>
+<li class="ContextMenuItem">
+  <label for="CtrlController">Ctrl:	</label>
+  <input type="checkbox" id="CtrlController" class="Checkbox" oninput="HideRight();">
+</li>
+</ul>
+<script>
+UpdatePen = function(Item){
+  if(Item[0] == "S"){
+    Settings[Item[Item.length-1]].lineWidth = document.getElementById(Item).value
+  } else if(Item[0] == "C"){
+    Settings[Item[Item.length-1]].strokeStyle = document.getElementById(Item).value
+  };
+};
+HideNav = function(){
+  document.getElementsByTagName("nav")[0].hidden = document.getElementById("NavController").checked;
+};
+HideRight = function(){
+  Array.from(document.getElementsByClassName("RightButton")).forEach(function(ele){
+    ele.hidden = !document.getElementById("CtrlController").checked
+  });
+};
+</script>
+</body>
+</html>

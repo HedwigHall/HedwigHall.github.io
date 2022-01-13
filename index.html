@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/navigation/modernNav.css">
+<link rel="stylesheet" href="/css/blog/blog.css">
+<script>
+var client = new XMLHttpRequest();
+client.open('GET', '/index.txt');
+client.onreadystatechange = function() {
+document.getElementsByTagName("blog-text")[0].innerHTML = client.responseText;
+if(document.location.hostname.toString().indexOf(".") > -1){document.title = document.location.hostname.toString().substr(0,document.location.hostname.toString().indexOf("."))} else {document.title = "hh";}
+}
+client.send();
+setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => {if(document.getElementsByTagName("nav")[0].className == "collapsed"){document.getElementsByTagName("nav")[0].className = "expanded"} else {document.getElementsByTagName("nav")[0].className = "collapsed"}}}, 1000);
+</script>
+</head>
+<body>
+  <nav>
+    <hamburger><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 16 16"><path d="M3 4h10a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm10 3H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2zm0 5H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"></path></svg></hamburger><navigation><a href="http://hh">Home</a><a href="http://catherine.hh">Catherine</a><a href="http://search.hh">Search</a><a href="http://hh/whiteboard">Whiteboard</a></navigation></nav>
+  <blog-content>
+  <blog-text>
+  </blog-text>
+</blog-content>
+</body>
+</html>
