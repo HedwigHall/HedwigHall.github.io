@@ -10,12 +10,20 @@
 <link rel="stylesheet" href="/css/navigation/modernNav.css">
 <link rel="stylesheet" href="/css/blog/blog.css">
 <script>
-setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => {if(document.getElementsByTagName("nav")[0].className == "collapsed"){document.getElementsByTagName("nav")[0].className = "expanded"} else {document.getElementsByTagName("nav")[0].className = "collapsed"}}}, 1000);
+document.onLoad = () => {document.getElementsByTagName("hamburger")[0].onclick = () => {if(document.getElementsByTagName("nav")[0].className == "collapsed"){document.getElementsByTagName("nav")[0].className = "expanded"} else {document.getElementsByTagName("nav")[0].className = "collapsed"}}}
 </script>
 </head>
 <body>
   <nav>
-    <hamburger><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 16 16"><path d="M3 4h10a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm10 3H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2zm0 5H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"></path></svg></hamburger><navigation><a href="http://hh">Home</a></nav>
+    <hamburger>
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 16 16">
+        <path d="M3 4h10a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm10 3H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2zm0 5H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"></path>
+      </svg>
+    </hamburger>
+    <navigation>
+      <a href="/">Home</a>
+    </navigation>
+  </nav>
   <script charset="UTF-8">
   window.addEventListener('load', () => {
     Settings = [{
