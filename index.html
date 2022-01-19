@@ -18,6 +18,14 @@ if(document.location.hostname.toString().indexOf(".") > -1){document.title = doc
 client.send();
 setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => {if(document.getElementsByTagName("nav")[0].className == "collapsed"){document.getElementsByTagName("nav")[0].className = "expanded"} else {document.getElementsByTagName("nav")[0].className = "collapsed"}}}, 1000);
 </script>
+  <script>
+    var currentTime = function(){
+      var d = new Date();
+      var pad = function(num){return num.toString().padStart(2, '0')};
+      return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())+" "+pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds());
+    };
+    Object.defineProperty(window, 'time', { get: currentTime });
+  </script>
 </head>
 <body>
   <nav>
