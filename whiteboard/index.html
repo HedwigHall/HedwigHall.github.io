@@ -139,6 +139,13 @@ document.onLoad = () => {document.getElementsByTagName("hamburger")[0].onclick =
   </style>
   <blog-content>
   <canvas id="Whiteboard"></canvas>
+  <div id="textEditor"><style>p{
+  z-index: 1000;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  font-family: "Karla"
+}</style><p style="color: #FFFFFF" id="textEditorInput" contenteditable="true">AaBbCcDdEeFfGgHhIiJjKkLlMmNnÑñOoPpQqRrSsTtUuVvWwXxYyZz</p></div>
 </blog-content>
 <ul class="ContextMenu" style="top: 0px;left: 0px" hidden="">
   <!-- Context Menu -->
