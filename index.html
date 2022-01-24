@@ -126,9 +126,9 @@ setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => 
       document.currentScript.parentElement.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);
       document.currentScript.parentElement.hidden = false;
       setTimeout(setInterval(function(){
-      document.currentScript.parentElement.getElementsByClassName("ClockDate")[0].innerText = date;
-      document.currentScript.parentElement.getElementsByClassName("ClockTime")[0].innerText = time;
-      document.currentScript.parentElement.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);},1000),1000-milliseconds)
+      document.getElementsByClassName("ClockDate")[0].innerText = date;
+      document.getElementsByClassName("ClockTime")[0].innerText = time;
+      document.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);},1000),1000-milliseconds)
     </script>
   </div>
 </body>
