@@ -37,18 +37,20 @@ setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => 
   <blog-text>
   </blog-text>
 </blog-content>
-  <div class="ClockDiv">
-    <p class="ClockDate">2022-01-21</p>
-    <p class="ClockTime">15:07</p>
+  <div class="ClockDiv" hidden="">
+    <p class="ClockDate">YYYY-MM-DD</p>
+    <p class="ClockTime" seconds=":SS">HH:MM</p>
     <style class="ClockStyle">
       .ClockDiv {
         position: fixed;
         right: 100px;
         bottom: 100px;
-        background-color: #1F293B;
+        background-color: #314159;
+        border: #1F293B solid 2px;
         border-radius: 5mm;
         line-height: ;
         padding: 5mm;
+        color: #6282B2
       }
       .ClockTime{
         font-size: fill;P
@@ -61,6 +63,39 @@ setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => 
         font-family: "ink free";
         margin: 0 0;
       }
+      .ClockTime::after{
+        content: attr(seconds);
+        color: #1F293B
+      }
+    </style>
+    
+    <style class="ClockStyle">
+      .ClockDiv {
+        position: fixed;
+        right: 100px;
+        bottom: 100px;
+        background-color: #314159;
+        border: #1F293B solid 2px;
+        border-radius: 5mm;
+        line-height: ;
+        padding: 5mm;
+        color: #6282B2
+      }
+      .ClockTime{
+        font-size: fill;P
+        font-family: "karla extralight";
+        margin: 0 0;
+        text-align: center;
+      }
+      .ClockDate{
+        font-size: 50;
+        font-family: "ink free";
+        margin: 0 0;
+      }
+      .ClockTime::after{
+        content: attr(seconds);
+        color: #1F293B
+      }
     </style>
     <script class="ClockScript">
       var CurrentDate = function(){
@@ -72,11 +107,20 @@ setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => 
       var CurrentTime = function(){
         var d = new Date();
         var pad = function(num){return num.toString().padStart(2, '0')};
-        return pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds());
+        return pad(d.getHours())+":"+pad(d.getMinutes());
       };
       Object.defineProperty(window, 'time', { get: CurrentTime });
-  </script>
-    <script>console.log(document.currentScript)</script>
+      var CurrentSeconds = function(){
+        var d = new Date();
+        var pad = function(num){return num.toString().padStart(2, '0')};
+        return ":"+pad(d.getSeconds());
+      };
+      Object.defineProperty(window, 'seconds', { get: CurrentSeconds });
+      document.currentScript.parentElement.getElementsByClassName("ClockDate")[0].innerText = date;
+      document.currentScript.parentElement.getElementsByClassName("ClockTime")[0].innerText = time;
+      document.currentScript.parentElement.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);
+      document.currentScript.parentElement.hidden = false;
+    </script>
   </div>
 </body>
 </html>
