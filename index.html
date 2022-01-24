@@ -116,10 +116,19 @@ setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => 
         return ":"+pad(d.getSeconds());
       };
       Object.defineProperty(window, 'seconds', { get: CurrentSeconds });
+      var CurrentMilliseconds = function(){
+        var d = new Date();
+        return d.getMilliseconds()
+      };
+      Object.defineProperty(window, 'milliseconds', { get: CurrentMilliseconds });
       document.currentScript.parentElement.getElementsByClassName("ClockDate")[0].innerText = date;
       document.currentScript.parentElement.getElementsByClassName("ClockTime")[0].innerText = time;
       document.currentScript.parentElement.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);
       document.currentScript.parentElement.hidden = false;
+      setTimeout(setInterval(function(){
+      document.currentScript.parentElement.getElementsByClassName("ClockDate")[0].innerText = date;
+      document.currentScript.parentElement.getElementsByClassName("ClockTime")[0].innerText = time;
+      document.currentScript.parentElement.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);},1000),1000-milliseconds)
     </script>
   </div>
 </body>
