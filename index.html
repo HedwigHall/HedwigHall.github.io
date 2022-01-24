@@ -40,40 +40,10 @@ setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => 
   <div class="ClockDiv" hidden="">
     <p class="ClockDate">YYYY-MM-DD</p>
     <p class="ClockTime" seconds=":SS">HH:MM</p>
-    <style class="ClockStyle">
-      .ClockDiv {
-        position: fixed;
-        right: 100px;
-        bottom: 100px;
-        background-color: #314159;
-        border: #1F293B solid 2px;
-        border-radius: 5mm;
-        line-height: ;
-        padding: 5mm;
-        color: #6282B2
-      }
-      .ClockTime{
-        font-size: fill;P
-        font-family: "karla extralight";
-        margin: 0 0;
-        text-align: center;
-      }
-      .ClockDate{
-        font-size: 50;
-        font-family: "ink free";
-        margin: 0 0;
-      }
-      .ClockTime::after{
-        content: attr(seconds);
-        color: #1F293B
-      }
-    </style>
     
     <style class="ClockStyle">
       .ClockDiv {
-        position: fixed;
-        right: 100px;
-        bottom: 100px;
+        position: relative;
         background-color: #314159;
         border: #1F293B solid 2px;
         border-radius: 5mm;
@@ -96,6 +66,7 @@ setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => 
         content: attr(seconds);
         color: #1F293B
       }
+    
     </style>
     <script class="ClockScript">
       var CurrentDate = function(){
