@@ -8,14 +8,15 @@
 <link rel="stylesheet" href="/css/global.css">
 <link rel="stylesheet" href="/css/navigation/modernNav.css">
 <link rel="stylesheet" href="/css/blog/blog.css">
+<title>hh</title>
 <script>
-var client = new XMLHttpRequest();
+/*var client = new XMLHttpRequest();
 client.open('GET', '/index.txt');
 client.onreadystatechange = function() {
 document.getElementsByTagName("blog-text")[0].innerHTML = client.responseText;
 if(document.location.hostname.toString().indexOf(".") > -1){document.title = document.location.hostname.toString().substr(0,document.location.hostname.toString().indexOf("."))} else {document.title = "hh";}
 }
-client.send();
+client.send();*/
 setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => {if(document.getElementsByTagName("nav")[0].className == "collapsed"){document.getElementsByTagName("nav")[0].className = "expanded"} else {document.getElementsByTagName("nav")[0].className = "collapsed"}}}, 1000);
 </script>
 </head>
@@ -35,24 +36,22 @@ setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => 
   </nav>
   <blog-content>
   <blog-text>
-  </blog-text>
-</blog-content>
-  <div class="ClockDiv" hidden="">
+    <p>Welcome to Hedwig Hall.<br>This is my personal intranet.</p>
+    <div class="ClockDiv" hidden="">
     <p class="ClockDate">YYYY-MM-DD</p>
     <p class="ClockTime" seconds=":SS">HH:MM</p>
     
     <style class="ClockStyle">
       .ClockDiv {
-        position: relative;
         background-color: #314159;
         border: #1F293B solid 2px;
         border-radius: 5mm;
-        line-height: ;
+        line-height: 1;
         padding: 5mm;
-        color: #6282B2
+        color: #6282B2;
       }
       .ClockTime{
-        font-size: fill;P
+        font-size: fill;
         font-family: "karla extralight";
         margin: 0 0;
         text-align: center;
@@ -66,7 +65,6 @@ setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => 
         content: attr(seconds);
         color: #1F293B
       }
-    
     </style>
     <script class="ClockScript">
       var CurrentDate = function(){
@@ -102,5 +100,8 @@ setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => 
       document.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);},1000),1000-milliseconds)
     </script>
   </div>
+  </blog-text>
+</blog-content>
+  
 </body>
 </html>
