@@ -42,22 +42,24 @@ setTimeout(() => {document.getElementsByTagName("hamburger")[0].onclick = () => 
     <p class="ClockTime" seconds=":SS">HH:MM</p>
     
     <style class="ClockStyle">
+      /*  Clock Stylesheet */
       .ClockDiv {
         background-color: #314159;
         border: #1F293B solid 2px;
+        min-width: 10vw;
         border-radius: 5mm;
         line-height: 1;
         padding: 5mm;
         color: #6282B2;
       }
       .ClockTime{
-        font-size: fill;
+        font-size: 50;
         font-family: "karla extralight";
         margin: 0 0;
-        text-align: center;
       }
       .ClockDate{
-        font-size: 50;
+        text-align: center;
+        font-size: fill;
         font-family: "ink free";
         margin: 0 0;
       }
