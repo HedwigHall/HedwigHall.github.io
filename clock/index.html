@@ -68,10 +68,22 @@ layout: default
         left: 50vw;
         transform: translate(-50%,-50%);
       }
-      @media (scripting: none){
-        .ClockDiv{
-          visibility: hidden;
-        }
+      nav{
+        display: hidden;
+      }
+      noscript{
+        z-index: 1000;
+        color: #FFF;
+        position: absolute;
+        width: 100vw;
+        height: fit-content;
+        text-align: center;
+        top: calc(50vh);
+        transform: translateY(-50%);
+        left: 0px;
+        background-color: #1F293B;
+        font-family: "karla";
+        font-size: min(85vh,calc(100vw*3/64));
       }
     </style>
     <script class="ClockScript">
@@ -108,3 +120,4 @@ layout: default
       document.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);},1000),1000-milliseconds)
     </script>
   </div>
+  <noscript>Please enable JavaScript to use the clock.</noscript>
