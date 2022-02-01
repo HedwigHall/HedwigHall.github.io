@@ -44,7 +44,6 @@ layout: default
         position: fixed;
         top: 0vh;
         left: 0vw;
-        z-index: 100;
         height: 100vh;
         width: 100vw;
       }
@@ -69,7 +68,7 @@ layout: default
         transform: translate(-50%,-50%);
       }
       nav{
-        display: hidden;
+        display: none;
       }
       noscript{
         z-index: 1000;
@@ -84,6 +83,9 @@ layout: default
         background-color: #1F293B;
         font-family: "karla";
         font-size: min(85vh,calc(100vw*3/64));
+      }
+      body{
+        overflow: none
       }
     </style>
     <script class="ClockScript">
