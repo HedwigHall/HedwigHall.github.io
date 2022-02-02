@@ -24,6 +24,7 @@ document.onLoad = () => {document.getElementsByTagName("hamburger")[0].onclick =
       <a href="/">Home</a>
     </navigation>
   </nav>
+  <!-- /whiteboard -->
   <script charset="UTF-8">
   window.addEventListener('load', () => {
     Settings = [{
@@ -120,6 +121,9 @@ document.onLoad = () => {document.getElementsByTagName("hamburger")[0].onclick =
     if(e.ctrlKey||e.altKey)
       e.preventDefault();
   });
+  document.getElementsByTagName("canvas")[0].addEventListener("touchstart", function (e) {document.getElementsByTagName("canvas")[0].dispatchEvent(new MouseEvent("mousedown", {clientX: e.touches[0].clientX, clientY: e.touches[0].clientY}));}, false);
+  document.getElementsByTagName("canvas")[0].addEventListener("touchmove", function (e) {document.getElementsByTagName("canvas")[0].dispatchEvent(new MouseEvent("mousemove", {clientX: e.touches[0].clientX, clientY: e.touches[0].clientY}));}, false);
+  document.getElementsByTagName("canvas")[0].addEventListener("touchend", function (e) {document.getElementsByTagName("canvas")[0].dispatchEvent(new MouseEvent("mouseup", {}));}, false);
   </script>
   <style>
     html {
@@ -139,13 +143,19 @@ document.onLoad = () => {document.getElementsByTagName("hamburger")[0].onclick =
   </style>
   <blog-content>
   <canvas id="Whiteboard"></canvas>
-  <div id="textEditor"><style>p{
-  z-index: 1000;
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  font-family: "Karla"
-}</style><p style="color: #FFFFFF" id="textEditorInput" contenteditable="true">AaBbCcDdEeFfGgHhIiJjKkLlMmNnÑñOoPpQqRrSsTtUuVvWwXxYyZz</p></div>
+  <div id="textEditor" hidden="">
+    <style>
+      p{
+        z-index: 1000;
+        position: fixed;
+        top: 50vh;
+        left: 50vw;
+        font-family: "Karla"
+      }
+    </style>
+    <p style="color: #FFFFFF" id="textEditorInput" contenteditable="true">AaBbCcDdEeFfGgHhIiJjKkLlMmNnÑñOoPpQqRrSsTtUuVvWwXxYyZz</p>
+    </div>
+    <!-- end /whiteboard -->
 </blog-content>
 <ul class="ContextMenu" style="top: 0px;left: 0px" hidden="">
   <!-- Context Menu -->
