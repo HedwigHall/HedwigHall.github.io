@@ -1,2 +1,2 @@
 # HedwigHall.github.io
-How interesting. It's some nice things for Josh to have.
+How interesting. It's some nice things for me to have.
