@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- SVG Viewer 0.0.2 -->
 <html>
 <head>
 <title>hh.SVGViewer</title>
@@ -29,8 +30,17 @@ div::before{
   z-index:
 </style>
 <div>
-<input type="file" oninput='()=>{document.getElementsByTagName("input")[0].files[0].text().then((file) => {document.getElementsByTagName("div")[0].outerHTML = file})}'>
-
+<input type="file">
+<script>
+document.getElementsByTagName("input")[0]
+.oninput = function(e) {
+console.log(e);
+document.getElementsByTagName("input")[0].files[0].text()
+.then((file) => {
+document.getElementsByTagName("div")[0].outerHTML = file
+})
+}
+</script>
 </div>
 </body>
 </html>
