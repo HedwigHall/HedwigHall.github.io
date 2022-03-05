@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- SVG Viewer 0.0.3 -->
+<!-- SVG Viewer 0.0.4 -->
 <html>
 <head>
 <title>hh.SVGViewer</title>
@@ -11,7 +11,7 @@ body{
   margin: 0px 0px 0px 0px;
   background-color: #CEBEA6;
 }
-input{
+body > div > input{
   position: absolute;
   top: 0px;
   left: 0px;
@@ -20,18 +20,18 @@ input{
   z-index: 1;
   opacity: 0;
 }
-div::before{
+body > div > p{
   position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100vw;
-  height: 100vh;
-  background-color: #CEBEA6;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%,-50%);
   color: #1F293B;
-  content: "Drop File Here";
-  z-index:
+  font-family: "Architects Daughter";
+  font-size: 10vh;
+}
 </style>
 <div>
+<p>Drop SVG Here</p>
 <input type="file">
 <script>
 document.getElementsByTagName("input")[0]
