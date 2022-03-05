@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- SVG Viewer 0.0.4 -->
+<!-- SVG Viewer 0.0.5 -->
 <html>
 <head>
 <title>hh.SVGViewer</title>
@@ -11,28 +11,33 @@ body{
   margin: 0px 0px 0px 0px;
   background-color: #CEBEA6;
 }
+body > div{
+  text-align: center;
+  margin: 0px 0px 0px 0px;
+}
 body > div > input{
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  margin: 0px 0px 0px 0px;
+  position: relative;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
   opacity: 0;
+  z-index: 1;
 }
 body > div > p{
+  margin: 0px 0px 0px 0px;
   position: absolute;
-  top: 50vh;
-  left: 50vw;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%,-50%);
   color: #1F293B;
   font-family: "Architects Daughter";
   font-size: 10vh;
+  z-index: 0;
 }
 </style>
 <div>
-<p>Drop SVG Here</p>
 <input type="file">
+<p>Drop SVG Here</p>
 <script>
 document.getElementsByTagName("input")[0]
 .oninput = function(e) {
