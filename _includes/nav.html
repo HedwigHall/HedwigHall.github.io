@@ -1,0 +1,74 @@
+<nav>
+  <style>
+    :root{
+      font-family: "karla";
+    }
+    @media only screen {
+      nav {
+        background-color: #314159;
+        color: #FFFF00;
+        width: 50vw;
+        height: 10mm;
+        position: fixed;
+        border: 2px solid #1F293B;
+        top: 10px;
+        left: 25vw;
+        border-radius: 5mm;
+        z-index: 100
+      }
+      hamburger {
+        position: relative;
+        left: 0px
+      }
+      hamburger:hover {
+        color-adjust: exact 3
+      }
+    }
+    @media only print {
+      nav {
+        display: none
+      }
+    }
+    nav hamburger {
+      fill: #1F293B;
+    }
+    nav hamburger:hover {
+      fill: #FFFFFF;
+    }
+    nav hamburger svg {
+      height: 10mm;
+    }
+    nav a,
+    nav dropdown a {
+      position: relative;
+      padding: 10px;
+      top: calc(-5mm + 0.25em);
+      margin: auto;
+      color: #1F293B;
+    }
+    nav a:hover,
+    nav dropdown a:hover {
+      color: #FFFFFF
+    }
+    nav {
+      transition: 0.5s ease-in-out;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    nav.collapsed {
+      width: 10mm;
+      left: 50vw;
+    }
+  </style>
+  <hamburger>
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 16 16">
+      <path d="M3 4h10a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm10 3H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2zm0 5H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"></path>
+    </svg>
+  </hamburger>
+  <navigation>
+    {% for link in site.data.nav %}
+    <a href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
+  </navigation>
+  <script>document.onLoad = () => {document.getElementsByTagName("hamburger")[0].onclick = () => {if(document.getElementsByTagName("nav")[0].className == "collapsed"){document.getElementsByTagName("nav")[0].className = "expanded"} else {document.getElementsByTagName("nav")[0].className = "collapsed"}}}</script>
+</nav>

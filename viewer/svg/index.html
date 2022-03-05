@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>hh.SVGViewer</title>
+</head>
+<body>
+<style>
+body{
+  text-align: center;
+}
+input{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  opacity: 0;
+}
+div::before{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #CEBEA6;
+  color: #1F293B;
+  content: "Drop File Here";
+  z-index:
+</style>
+<div>
+<input type="file" oninput='function(e){console.log(e);document.getElementsByTagName("input")[0].files[0].text().then((file) => {document.getElementsByTagName("div")[0].outerHTML = file})}'>
+
+</div>
+</body>
+</html>
