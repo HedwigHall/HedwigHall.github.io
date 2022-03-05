@@ -29,7 +29,7 @@ div::before{
   z-index:
 </style>
 <div>
-<input type="file" oninput='function(e){console.log(e);document.getElementsByTagName("input")[0].files[0].text().then((file) => {document.getElementsByTagName("div")[0].outerHTML = file})}'>
+<input type="file" oninput='()=>{document.getElementsByTagName("input")[0].files[0].text().then((file) => {document.getElementsByTagName("div")[0].outerHTML = file})}'>
 
 </div>
 </body>
