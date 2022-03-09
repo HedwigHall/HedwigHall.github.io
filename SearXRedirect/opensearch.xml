@@ -1,0 +1,9 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+<ShortName>Random Searx</ShortName>
+<Description>Random Searx Redirector</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<Url type="text/html" method="get" template="http://hedwighall.github.io/SearXRedirect/#">
+<Param name="q" value="{searchTerms}"/>
+<Param name="category_general" value="on"/>
+</Url>
+</OpenSearchDescription>
