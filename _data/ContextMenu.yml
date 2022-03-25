@@ -1,0 +1,3 @@
+- label: Foo
+  type: Bar
+  action: alert("baz")

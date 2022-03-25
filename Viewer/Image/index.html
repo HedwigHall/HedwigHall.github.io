@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!-- SVG Viewer 22w11a -->
+<!-- ImageViewer 22w11a -->
 <html>
 <head>
-<title>hh.SVGViewer</title>
+<title>hh.ImageViewer</title>
 </head>
 <body>
 <style>
@@ -34,19 +34,29 @@ body > div > p{
   font-size: 10vh;
   z-index: 0;
 }
+body > img{
+  max-height: calc(100vh - 4px);
+  max-width: calc(100vw - 4px);
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%)
+}
 </style>
 <div>
 <input type="file">
-<p>Drop SVG Here</p>
+<p>Drop Image Here</p>
 <script>
-document.getElementsByTagName("input")[0]
-.oninput = function(e) {
-console.log(e);
-document.getElementsByTagName("input")[0].files[0].text()
-.then((file) => {
-document.getElementsByTagName("div")[0].outerHTML = file
+document.getElementsByTagName("input")[0].addEventListener("input", function(e) {
+  console.log(e);
+  document.getElementsByTagName("input")[0].files[0].text()
+    .then((file) => {
+      document.getElementsByTagName("div")[0].outerHTML = "<img src="+URL.createObjectURL(e.target.files[0])+" />"
+    })
 })
-}
 </script>
 </div>
 </body>

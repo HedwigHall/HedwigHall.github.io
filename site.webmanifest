@@ -1,0 +1,18 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "name": "Hedwig Hall",
+  "short_name": "hh",
+  "icons": [{
+    "src": "favicon.ico",
+    "sizes": "256x256",
+    "type": "image/x-icon"
+  }],
+  "scope": "/",
+  "id": "https://hedwighall.github.io",
+  "start_url": "https://hedwighall.github.io",
+  "display": "fullscreen",
+  "orientation": "any",
+  "theme_color": "#CEBE3B",
+  "background_color": "#314159"
+}

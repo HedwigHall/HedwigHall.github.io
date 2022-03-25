@@ -1,8 +1,11 @@
 - title: Home
   url: /
 
-- title: Pi-Theme
-  url: /Pi-Theme/
-
 - title: Whiteboard
-  url: /whiteboard/
+  url: /Whiteboard/
+
+- title: Clock
+  url: /Clock/
+
+- title: SVG Viewer
+  url: /Viewer/SVG/

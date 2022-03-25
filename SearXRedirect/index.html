@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!-- SearX Redirect 0.0.1 -->
+<!-- SearX Redirect 22w10a -->
 <html>
 <head>
 <title>Random Searx Redirector</title>
-<link href="/SearxRedirect/opensearch.xml" rel="search" title="Random Searx" type="application/opensearchdescription+xml">
+<link href="/SearXRedirect/opensearch.xml" rel="search" title="Random Searx" type="application/opensearchdescription+xml">
 <script type="text/javascript">
 var urls;
 // List of Searx public instances. One per line. Keep formatting intact: '<host>',
@@ -38,7 +38,7 @@ urls = [
 /*'searx.tuxcloud.net',*/
 'searx.tyil.nl',
 'searx.webheberg.info',
-'searx.zackptg5.com',
+'searxng.zackptg5.com',
 'suche.dasnetzundich.de',
 'suche.uferwerk.org',
 'swag.pw',
@@ -46,11 +46,6 @@ urls = [
 'timdor.noip.me/searx',
 'trovu.komun.org',
 'www.gruble.de'
-
-];
-newtls = [
-
-0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
 
 ];
 
@@ -73,10 +68,7 @@ function doSearx(s)
 		return false;
 
 	var rng;
-	do {
-		rng = Math.floor(Math.random() * urls.length);
-		if (altmode == false) break;
-	} while (newtls.indexOf(rng) != -1);
+	rng = Math.floor(Math.random() * urls.length);
 
 	var query = s.match(/q=.+/);
 	if (query != '')
@@ -191,6 +183,6 @@ if (window.location.href.indexOf('q=') != -1)
 <input id="checkbox_social_media" name="category_social media" type="checkbox"><label for="checkbox_social_media">social</label>
 </div>
 </form>
-<a href="https://searx.neocities.org/#q=%s&amp;category_general=on" id="bkmk">Bookmark this link</a>
+<a href="https://hedwighall.github.io/SearXRedirect/#q=%s&amp;category_general=on" id="bkmk">Bookmark this link</a>
 </body>
 </html>

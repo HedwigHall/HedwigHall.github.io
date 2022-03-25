@@ -1,60 +1,77 @@
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
-<style id="styles.css.html">
+<!-- stylesCSS.html 22w12a -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter&display=swap">
+<style id="stylesCSS.html">
+
   :root{
-    font-family: Karla, Arial, sans-serif;
+    --BackgroundColor: #314159;
+    --AltColor: #1F293B;
+    --HighlightColor: #CEBE59;
+    --TextColor: #CEBEA6;
+    --TextFont: "Karla", sans-serif;
+    --HandFont: "Architects Daughter", cursive;
+    --SerifFont: "Bitter", serif;
   }
+@media (prefers-color-scheme: light){
+  :root{
+    --BackgroundColor: #CEBEA6;
+    --AltColor: #CEBE3B;
+    --HighlightColor: #6282B2;
+    --TextColor: #314159;
+  }
+}
   @media only screen {
     body {
-      background-color: #314159;
-      color: #FFFFFF
+      background-color: var(--BackgroundColor);
+      color: var(--TextColor)
     }
   }
   html {
-    --scrollbarBG: #1F293B;
-    --thumbBG: #314159;
+    --scrollbarBG: var(--AltColor);
+    --thumbBG: var(--BackgroundColor);
   }
   body {
-    scrollbar-color: #314159 #1F293B #FFFF00;
+    scrollbar-color: var(--BackgroundColor) var(--AltColor) var(--HighlightColor);
     overflow: auto;
     margin: 0 auto;
+    font-family: var(--HandFont);
   }
   body::-webkit-scrollbar-track {
-    background: #1F293B;
+    background: var(--AltColor);
   }
   body::-webkit-scrollbar-thumb {
-    background-color: #314159;
+    background-color: var(--BackgroundColor);
     border-radius: 6px;
-    border: 3px solid #1F293B;
+    border: 3px solid var(--AltColor);
   }
   html {
-    scrollbar-color: #314159 #1F293B;
+    scrollbar-color: var(--BackgroundColor) var(--AltColor);
   }
   /* Scrollbar */
   body {
-    scrollbar-color: #314159 #1F293B #FFFF00;
+    scrollbar-color: var(--BackgroundColor) var(--AltColor) var(--HighlightColor);
     margin: 0 auto;
   }
   body::-webkit-scrollbar-track {
-    background: #1F293B;
+    background: var(--AltColor);
   }
   body::-webkit-scrollbar-thumb {
-    background-color: #314159;
+    background-color: var(--BackgroundColor);
     border-radius: 6px;
-    border: 3px solid #1F293B;
+    border: 3px solid var(--AltColor);
   }
   html {
-    scrollbar-color: #314159 #1F293B;
+    scrollbar-color: var(--BackgroundColor) var(--AltColor);
   }
   .Content {
     padding-left: 25vw;
     padding-right: 25vw;
     padding-top: 15mm;
-    color: #FFFFFF;
-    font-family: "Ink Free", cursive;
+    color: var(--TextColor);
+    font-family: var(--HandFont);
     width: 50vw;
-  }
-  .BodyText {
     position: absolute;
     text-align: justify;
   }

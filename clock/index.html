@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+    <!-- Clock 22w12a -->
     <div class="ClockDiv" hidden="">
     <p class="ClockDate">YYYY-MM-DD</p>
     <p class="ClockTime" seconds=":SS">HH:MM</p>
@@ -92,7 +93,14 @@ layout: default
       var CurrentDate = function(){
         var d = new Date();
         var pad = function(num){return num.toString().padStart(2, '0')};
-        return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+        var datetmp1 = new(Date)
+        var date1 = new Date(datetmp1.getTime());
+        date1.setHours(0, 0, 0, 0);
+        date1.setDate(date1.getDate() + 3 - (date1.getDay() + 6) % 7);
+        var week1 = new Date(date1.getFullYear(), 0, 4);
+        var date2 = new Date(datetmp1.getTime());
+        date2.setDate(date2.getDate() + 3 - (date2.getDay() + 6) % 7);
+        return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())+ " (" + date2.getFullYear().toString().slice(2, 4) + "W" + (1 + Math.round(((date1.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7))+")";
       };
       Object.defineProperty(window, 'date', { get: CurrentDate });
       var CurrentTime = function(){
@@ -120,6 +128,16 @@ layout: default
       document.getElementsByClassName("ClockDate")[0].innerText = date;
       document.getElementsByClassName("ClockTime")[0].innerText = time;
       document.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);},1000),1000-milliseconds)
+            tmp11 = function() {
+        datetmp1 = new(Date)
+        var date1 = new Date(datetmp1.getTime());
+        date1.setHours(0, 0, 0, 0);
+        date1.setDate(date1.getDate() + 3 - (date1.getDay() + 6) % 7);
+        var week1 = new Date(date1.getFullYear(), 0, 4);
+        var date2 = new Date(datetmp1.getTime());
+        date2.setDate(date2.getDate() + 3 - (date2.getDay() + 6) % 7);
+        datetmp1 = "(" + date2.getFullYear().toString().slice(2, 4) + "W" + (1 + Math.round(((date1.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7))+")";
+      }
     </script>
   </div>
   <noscript>Please enable JavaScript to use the clock.</noscript>
