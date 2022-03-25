@@ -14,7 +14,11 @@ and versioning is in the form [Two Digit Year]W[Two Digit Week][Unique Letter]
 - Markdown (\Debug\Markdown)
 - Local Jekyll running (not working)
 
-## 22-03-25
+## 22w12b (22-03-25-10)
+- Nav 22w12b
+    - I forgot to update the CSS to IDs
+
+## 22w12a (22-03-25-09)
 ### Added
 - humans.txt
 - robots.txt

@@ -1,10 +1,10 @@
-<!-- Nav 22w12a -->
+<!-- Nav 22w12b -->
 <div id="nav">
   <style>
     :root{
       font-family: var(--TextFont);
     }
-      nav {
+      #nav {
         background-color:  var(--BackgroundColor);
         color:  var(--TextColor);
         width: 50vw;
@@ -17,38 +17,38 @@
         z-index: 100;
         overflow: hidden;
       }
-      hamburger {
+      #hamburger {
         position: relative;
         left: 0px
       }
-      hamburger:hover {
+      #hamburger:hover {
         color-adjust: exact 3
       }
-    nav hamburger {
+    #nav #hamburger {
       fill:  var(--TextColor);
       float: left
     }
-    nav hamburger:hover {
+    #nav #hamburger:hover {
       fill:  var(--HighlightColor);
     }
-    nav hamburger svg {
+    #nav #hamburger svg {
       height: 10mm;
     }
-    nav navigation a{
+    #nav #navigation a{
       position: relative;
       padding-left: 10px;
       padding-right: 10px;
       top: 2.5mm;
       color:  var(--TextColor);
     }
-    nav navigation a:hover{
+    #nav #navigation a:hover{
       color:  var(--HighlightColor)
     }
-    nav {
+    #nav {
       transition: 0.5s ease-in-out;
       white-space: nowrap;
     }
-    nav.collapsed {
+    #nav.collapsed {
       width: 10mm;
       left: 50vw;
     }
