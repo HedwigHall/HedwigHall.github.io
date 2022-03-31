@@ -1,2 +1,2 @@
-baseurl: /
-url: /
+plugins:
+  - jekyll-sitemap

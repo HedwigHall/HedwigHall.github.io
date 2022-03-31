@@ -1,47 +1,55 @@
+<!-- ContextMenu.html 22w12a -->
 <ul class="ContextMenu" hidden="">
+ <li class="ContextMenuHeader">Title</li>
+ <li>
+ <label for="TemplateCheckInput">Checkbox Option:	</label>
+ <input type="checkbox" id="TemplateCheckInput" class="CheckboxInput" oninput="console.log('Option Checked')">
+ </li>
+ <li>
+ <label for="TemplateColorInput">Color Input:	</label>
+ <input type="text" id="TemplateColorInput" class="ColorInput" size="7" maxlength="7" value=" var(--TextColor)" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color" oninput="console.log('Color Input Inputted')"></li>
+ <li>
+ <label for="TemplateNumberInput">Number Input:	</label>
+ <input type="text" id="TemplateNumberInput" class="NumberInput" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number" oninput="console.log('Number Input Inputted')"></li>
+</ul>
+{% capture head %}{{ head }}
+<!-- ContextMenu Head -->
  <style>
  /* Context Menu */
  .ContextMenu{
  background-color: var(--AltColor);
  color: var(--TextColor);
  width: fit-content;
- position: absolute;
+ position: fixed;
  border-radius: 12.5px;
  list-style-type:none;
  padding: 1px;
  margin: 0px;
- font-family: var(--TextFont);
- }
- hr{
- background-color: var(--BackgroundColor);
- height: 1px;
- margin: 0px;
- padding: 0px;
- border: none;
+ font-family: var(--SansFont);
  }
 @media (prefers-color-scheme: light){
   .ContextMenu, hr{
     background-color: var(--TextColor);
   }
 }
- li{
+ .ContextMenu li{
  padding-left: 5px;
  padding-right: 5px;
  background-color: var(--AltColor);
- font-family: var(--TextFont);
+ font-family: var(--SansFont);
  }
- li:not(.ContextMenuHeader):hover{
+ .ContextMenu li:not(.ContextMenuHeader):hover{
  background-color: var(--BackgroundColor);
  }
- li:nth-child(2){
+ .ContextMenu li:first-child{
  border-top-left-radius: 12.5px;
  border-top-right-radius: 12.5px;
  }
- li:nth-last-child(2){
+ .ContextMenu li:last-child{
  border-bottom-left-radius: 12.5px;
  border-bottom-right-radius: 12.5px;
  }
- .NumberInput, .ColorInput{
+ .ContextMenu > .NumberInput, .ContextMenu > .ColorInput{
  margin: 0px 0px 0px 0px;
  background-color: var(--AltColor);
  border: solid 1px var(--AltColor);
@@ -49,13 +57,13 @@
  -moz-appearance: textfield;
  color: var(--TextColor);
  }
- .ColorInput:hover, .NumberInput:hover{
+ .ContextMenu > .ColorInput:hover, .ContextMenu > .NumberInput:hover{
  background-color: var(--BackgroundColor);
  border: solid 1px var(--HighlightColor);
  border-radius: 12.5px;
  color: var(--HighlightColor);
  }
- .ColorInput:hover, .ColorInput:active, .NumberInput:hover, .NumberInput:active{
+ .ContextMenu > .ColorInput:hover, .ContextMenu > .ColorInput:active, .ContextMenu > .NumberInput:hover, .ContextMenu > .NumberInput:active{
  background-color: var(--BackgroundColor);
  border: solid 1px var(--HighlightColor);
  border-radius: 12.5px;
@@ -115,45 +123,42 @@
  border-color: #ce4159;
  color: var(--TextColor);
  }
- </style>
- <li class="ContextMenuHeader">Title</li>
- <hr>
- <li>
- <label for="TemplateCheckInput">Checkbox Option:	</label>
- <input type="checkbox" id="TemplateCheckInput" class="CheckboxInput" oninput="console.log('Option Checked')">
- </li>
- <hr>
- <li>
- <label for="TemplateColorInput">Color Input:	</label>
- <input type="text" id="TemplateColorInput" class="ColorInput" size="7" maxlength="7" value=" var(--TextColor)" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color" oninput="console.log('Color Input Inputted')"></li>
- <hr>
- <li>
- <label for="TemplateNumberInput">Number Input:	</label>
- <input type="text" id="TemplateNumberInput" class="NumberInput" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number" oninput="console.log('Number Input Inputted')"></li>
- <script>
- function MouseDown(e){
- if(e.button == 0){
- if(document.querySelector(".ContextMenu:hover") == null){
- if(!document.getElementsByClassName("ContextMenu")[0].hidden){
- document.getElementsByClassName("ContextMenu")[0].hidden = true;
- }
- }
- } else if(e.button == 0){
- if(document.querySelector(".ContextMenu:hover") == null){
- if(!document.getElementsByClassName("ContextMenu")[0].hidden){
- document.getElementsByClassName("ContextMenu")[0].hidden = true;
- }
- }
- } else if(e.button == 2){
- e.preventDefault();
- document.getElementsByClassName("ContextMenu")[0].style.left = e.clientX+"px";
- document.getElementsByClassName("ContextMenu")[0].style.top = e.clientY+"px";
- document.getElementsByClassName("ContextMenu")[0].hidden = false;
- }
-};
-document.oncontextmenu = function(e){
- e.preventDefault();
+ ul li:after {
+  content: "";
+  display: block;
+  background-color: var(--BackgroundColor);
+  height: 1px;
+  margin: 0px;
+  padding: 0px;
+  border: none;
 }
-document.body.addEventListener("mousedown", MouseDown);
- </script>
-</ul>
+  </style>
+  <script>
+  window.addEventListener("load", function(){
+  function MouseDown(e){
+  if(e.button == 0){
+  if(document.querySelector(".ContextMenu:hover") == null){
+  if(!document.getElementsByClassName("ContextMenu")[0].hidden){
+  document.getElementsByClassName("ContextMenu")[0].hidden = true;
+  }
+  }
+  } else if(e.button == 0){
+  if(document.querySelector(".ContextMenu:hover") == null){
+  if(!document.getElementsByClassName("ContextMenu")[0].hidden){
+  document.getElementsByClassName("ContextMenu")[0].hidden = true;
+  }
+  }
+  } else if(e.button == 2){
+    e.preventDefault();
+    document.getElementsByClassName("ContextMenu")[0].style.left = e.clientX+"px";
+    document.getElementsByClassName("ContextMenu")[0].style.top = e.clientY+"px";
+    document.getElementsByClassName("ContextMenu")[0].hidden = false;
+  }
+  };
+  document.oncontextmenu = function(e){
+   e.preventDefault();
+  }
+    document.body.addEventListener("mousedown", MouseDown);
+  })
+  </script>
+{% endcapture %}

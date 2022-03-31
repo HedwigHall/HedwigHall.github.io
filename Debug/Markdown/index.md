@@ -1,28 +1,59 @@
 ---
 layout: default
+title: hh.Debug.Markdown
+description: hh.Debug.Markdown is example GitHub flavored markdown.
 ---
-_Italics_
 
-__Strong__
+<!-- hh.Debug.Markdown 22w13a -->
 
-___Italics & Strong___
+# MarkdownHelp
 
-# Heading 1
+## MarkdownHelp.Headings
 
-## Heading 2
+### Markdown.Headings.Joke
 
-### Heading 3
+- Jokes
+  * Biting the bullet
+  - Dashing away in fear
+  + +3 Bad jokes hidden in the source[^1]
 
-#### Heading 4
+> \> Blocks <
+>
+>> \> Blocks your Block <
 
-##### Heading 5
+1. Finish this page
+2. Finish the descriptions of other things
+3. Understand italics, bold, and both
+   1. _Italics_
+   2. **Strong**
+   3. **_Both_**
+4. A note on jokes[^2]
 
-###### Heading 6
+`One might think I'm talkin in code`, but I'm not.
 
-- Level 1
-  - Level 2
-    - Level 3
-      - Level 4
-        - Level 5
-          - Level 6
-            - Level N
+    for(i = 0; i < -1; i++){
+      alert("I love Comic Sans")
+    };
+
+    /*---------------------------*\
+    |* That's why I don't use it *|
+    \*---------------------------*/
+
+
+Lines are great, but I love [robots.txt](/robots.txt)
+
+[![The great, the all powerful, the favicon.ico](/favicon.ico "The great, the all powerful, the favicon.ico")](/)
+
+- [X] Finish this page
+- [ ] ~~Get enough sleep~~
+- [ ] ~~Find a use for markdown~~
+- [ ] ~~Quit telling bad jokes~~
+- [ ] Finish this website
+
+---
+Footnotes:
+
+[^1]: If you know, you know.
+[^2]: I got to the root of the problem, it doesn't have feet, it's a plant
+
+<!-- An html comment, that nobody will see -->

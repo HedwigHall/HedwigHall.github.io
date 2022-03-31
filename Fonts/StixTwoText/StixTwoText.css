@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'STIX Two Text';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../Fonts/STIXTwoText/StixTwoText-Regular.woff2') format('woff2'),
+       url('../Fonts/STIXTwoText/StixTwoText-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'STIX Two Text';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+       url('../Fonts/STIXTwoText/StixTwoText-Italic.woff2') format('woff2'),
+       url('../Fonts/STIXTwoText/StixTwoText-Italic.woff') format('woff');
+}

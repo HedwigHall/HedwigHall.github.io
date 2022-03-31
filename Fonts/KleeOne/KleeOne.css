@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Klee One';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+       url('../Fonts/KleeOne/KleeOne-600.woff2') format('woff2'),
+       url('../Fonts/KleeOne/KleeOne-600.woff') format('woff');
+}

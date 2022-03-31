@@ -1,0 +1,176 @@
+---
+layout: default
+title: hh.Tools.Whiteboard
+description: hh.Tools.Whiteboard houses a whiteboard that can be drawn on by mouse (giving multiple colors), or a tablet.
+---
+  <!-- Whiteboard 22w13a -->
+  <canvas id="Whiteboard"></canvas>
+  <script charset="UTF-8">
+  window.addEventListener('load', () => {
+    Settings = [{
+      lineWidth: 10,
+      lineCap: "round",
+      strokeStyle: "#FFFFFF"
+    },{
+      lineWidth: 10,
+      lineCap: "round",
+      strokeStyle: "#FFFF00"
+    },{
+      lineWidth: 10,
+      lineCap: "round",
+      strokeStyle: "#1F293B"
+    }];
+    const canvas = document.querySelector("#Whiteboard");
+    const ctx = canvas.getContext("2d");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    var drawing = false;
+    function startPosition(e){
+      Button = e.button
+      if(e.button == 0){
+        if(document.querySelector(".ContextMenu:hover") == null){
+          if(!document.getElementsByClassName("ContextMenu")[0].hidden){
+            document.getElementsByClassName("ContextMenu")[0].hidden = true;
+          }else{
+            drawing = true;
+            draw(e);
+          }
+        }
+      } else if(e.button == 1){
+        if(document.querySelector(".ContextMenu:hover") == null){
+          if(!document.getElementsByClassName("ContextMenu")[0].hidden){
+            document.getElementsByClassName("ContextMenu")[0].hidden = true;
+          }else{
+            drawing = true;
+            draw(e);
+          }
+        }
+      } else if(e.button == 2){
+        e.preventDefault();
+        if(document.getElementById("CtrlController").checked && !e.ctrlKey){
+          if(document.querySelector(".ContextMenu:hover") == null){
+            if(!document.getElementsByClassName("ContextMenu")[0].hidden){
+              document.getElementsByClassName("ContextMenu")[0].hidden = true;
+            }else{
+              drawing = true;
+              draw(e);
+            }
+          }
+        } else {
+          document.getElementsByClassName("ContextMenu")[0].style.left = e.clientX+"px";
+          document.getElementsByClassName("ContextMenu")[0].style.top = e.clientY+"px";
+          document.getElementsByClassName("ContextMenu")[0].hidden = false;
+        }
+
+      };
+    };
+    function endPosition(){
+		drawing = false;
+		ctx.beginPath();
+    };
+    function draw(e){
+      if(!drawing) return;
+      ctx.lineWidth = Settings[Button].lineWidth;
+      ctx.lineCap = Settings[Button].lineCap;
+      ctx.strokeStyle = Settings[Button].strokeStyle;
+      ctx.lineTo(e.clientX, e.clientY);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX, e.clientY);
+    };
+    UpdatePen = function(Item){
+      if(Item[0] == "S"){
+        Settings[Item[Item.length-1]].lineWidth = document.getElementById(Item).value
+      } else if(Item[0] == "C"){
+        Settings[Item[Item.length-1]].strokeStyle = document.getElementById(Item).value
+      };
+    };
+    canvas.addEventListener("mousedown", startPosition);
+    canvas.addEventListener("mouseup", endPosition);
+    canvas.addEventListener("mousemove", draw);
+  window.addEventListener('resize', () => {
+    const canvas = document.querySelector("#Whiteboard");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+  });
+  document.oncontextmenu = function(e){
+      e.preventDefault();
+  }
+  document.body.addEventListener("wheel", e=>{
+    if(e.ctrlKey||e.altKey)
+      e.preventDefault();
+  });
+  document.getElementsByTagName("canvas")[0].addEventListener("touchstart", function (e) {document.getElementsByTagName("canvas")[0].dispatchEvent(new MouseEvent("mousedown", {clientX: e.touches[0].clientX, clientY: e.touches[0].clientY}));}, false);
+  document.getElementsByTagName("canvas")[0].addEventListener("touchmove", function (e) {document.getElementsByTagName("canvas")[0].dispatchEvent(new MouseEvent("mousemove", {clientX: e.touches[0].clientX, clientY: e.touches[0].clientY}));}, false);
+  document.getElementsByTagName("canvas")[0].addEventListener("touchend", function (e) {document.getElementsByTagName("canvas")[0].dispatchEvent(new MouseEvent("mouseup", {}));}, false);
+  HideNav = function(){
+    document.getElementById("nav").hidden = document.getElementById("NavController").checked;
+  };
+  HideRight = function(){
+    Array.from(document.getElementsByClassName("RightButton")).forEach(function(ele){
+      ele.hidden = !document.getElementById("CtrlController").checked
+    });
+  };
+  UpdatePen('SizeController0');
+  UpdatePen('ColorController0');
+  UpdatePen('SizeController1');
+  UpdatePen('ColorController1');
+  UpdatePen('SizeController2');
+  UpdatePen('ColorController2');
+  HideNav();
+  });
+  </script>
+  <style>
+    html {
+      overflow: hidden;
+      user-select: none;
+    }
+    #Whiteboard {
+      cursor: crosshair;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100vw;
+      height: 100vh;
+      padding: 0px;
+      margin: 0px;
+    }
+  </style>
+<ul class="ContextMenu" style="top: 0px;left: 0px" hidden="">
+<li class="ContextMenuItem">Left Click</li>
+<li class="ContextMenuItem"><form action="javascript:UpdatePen('SizeController0');">
+  <label for="SizeController0">Size:	</label>
+  <input type="text" id="SizeController0" class="NumberInput" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number">
+</form></li>
+<li class="ContextMenuItem"><form action="javascript:UpdatePen('ColorController0');">
+  <label for="ColorController0">Color:	</label>
+  <input type="text" id="ColorController0" class="ColorInput" size="7" maxlength="7" value="#FFFFFF" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color">
+</form></li>
+<li class="ContextMenuItem">Middle Click</li>
+<hr>
+<li class="ContextMenuItem"><form action="javascript:UpdatePen('SizeController1');">
+  <label for="SizeController1">Size:	</label>
+  <input type="text" id="SizeController1" class="NumberInput" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number">
+</form></li>
+<li class="ContextMenuItem"><form action="javascript:UpdatePen('ColorController1');">
+  <label for="ColorController1">Color:	</label>
+  <input type="text" id="ColorController1" class="ColorInput" size="7" maxlength="7" value="#FFFF00" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color">
+</form></li>
+<li class="ContextMenuItem RightButton" hidden="">Right Click</li>
+<li class="RightButton ContextMenuItem" hidden=""><form action="javascript:UpdatePen('SizeController2');">
+  <label for="SizeController2">Size:	</label>
+  <input type="text" id="SizeController2" class="NumberInput" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number">
+</form></li>
+<li class="RightButton ContextMenuItem" hidden=""><form action="javascript:UpdatePen('ColorController2');">
+  <label for="ColorController2">Color:	</label>
+  <input type="text" id="ColorController2" class="ColorInput" size="7" maxlength="7" value="#1F293B" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color">
+</form></li>
+<li class="ContextMenuItem">
+  <label for="NavController">Hide Nav:	</label>
+  <input type="checkbox" id="NavController" class="Checkbox" oninput="HideNav();">
+</li>
+<li class="ContextMenuItem">
+  <label for="CtrlController">Ctrl:	</label>
+  <input type="checkbox" id="CtrlController" class="Checkbox" oninput="HideRight();">
+</li>
+</ul>

@@ -1,8 +1,21 @@
-<!-- Nav 22w12b -->
+<!-- Nav 22w13a -->
 <div id="nav">
+  <div id="hamburger">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 16 16">
+      <path d="M3 4h10a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm10 3H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2zm0 5H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"></path>
+    </svg>
+  </div>
+  <div id="navigation">
+    {% for link in site.data.#nav %}
+    <a href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
+  </div>
+</div>
+{% capture head %}{{ head }}
+  <!-- Nav Head -->
   <style>
     :root{
-      font-family: var(--TextFont);
+      font-family: var(--SansFont);
     }
       #nav {
         background-color:  var(--BackgroundColor);
@@ -20,9 +33,6 @@
       #hamburger {
         position: relative;
         left: 0px
-      }
-      #hamburger:hover {
-        color-adjust: exact 3
       }
     #nav #hamburger {
       fill:  var(--TextColor);
@@ -57,26 +67,35 @@
         display: none
       }
     }
+    #nav #hamburger, #nav #navigation{
+      transition: all 0.5s ease-in-out;
+    }
+    #nav.Hidden{
+      top: -10mm;
+      opacity: 0;
+    }
+    #nav.Unobtrusive:not(:hover){
+      transform: translateY(-10mm);
+      opacity: 0.5;
+    }
+    #nav.Unobtrusive:not(:hover) #hamburger, #nav.Unobtrusive:not(:hover) #navigation{
+      opacity: 0;
+    }
   </style>
-  <div id="hamburger">
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 16 16">
-      <path d="M3 4h10a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm10 3H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2zm0 5H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"></path>
-    </svg>
-  </div>
-  <div id="navigation">
-    {% for link in site.data.#nav %}
-    <a href="{{ link.url }}">{{ link.title }}</a>
-    {% endfor %}
-  </div>
   <script>
-    document.addEventListener("load", function(){
+    window.addEventListener("load", function(){
       document.getElementById("hamburger").addEventListener("click", function(){
-        if (document.getElementById("nav").className == "collapsed") {
-          document.getElementById("nav").className = "expanded"
+        if (document.getElementById("nav").classList.contains("collapsed")) {
+          document.getElementById("nav").classList.replace("collapsed","expanded")
+          document.getElementById("nav").classList.add("expanded")
         } else {
-          document.getElementById("nav").className = "collapsed"
+          document.getElementById("nav").classList.replace("expanded","collapsed")
+          document.getElementById("nav").classList.add("collapsed")
         }
       });
+        if((new URLSearchParams(document.location.search)).get("nav") == "Hidden"){document.getElementById("nav").classList.add("Hidden")}
+        if((new URLSearchParams(document.location.search)).get("nav") == "Unobtrusive"){document.getElementById("nav").classList.add("Unobtrusive")}
     }
+  )
   </script>
-</div>
+  {% endcapture %}

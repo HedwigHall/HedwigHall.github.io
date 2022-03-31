@@ -1,0 +1,9 @@
+
+@font-face {
+  font-family: 'Architects Daughter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../Fonts/ArchitectsDaughter/ArchitectsDaughter-Regular.woff2') format('woff2'),
+       url('../Fonts/ArchitectsDaughter/ArchitectsDaughter-Regular.woff') format('woff');
+}

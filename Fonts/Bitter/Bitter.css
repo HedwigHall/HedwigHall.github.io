@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'Bitter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../Fonts/Bitter/Bitter-Regular.woff2') format('woff2'), 
+       url('../Fonts/Bitter/Bitter-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Bitter';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+       url('../Fonts/Bitter/Bitter-Italic.woff2') format('woff2'),
+       url('../Fonts/Bitter/Bitter-Italic.woff') format('woff'); 
+}

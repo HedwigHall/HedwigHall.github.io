@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../Fonts/Karla/Karla-Regular.woff2') format('woff2'),
+       url('../Fonts/Karla/Karla-Regular.woff') format('woff');
+}
+
+/* karla-italic - latin-ext_latin */
+@font-face {
+  font-family: 'Karla';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+       url('../Fonts/Karla/Karla-Italic.woff2') format('woff2'),
+       url('../Fonts/Karla/Karla-Italic.woff') format('woff');
+}

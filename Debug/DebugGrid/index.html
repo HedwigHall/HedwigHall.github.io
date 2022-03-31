@@ -1,0 +1,72 @@
+---
+layout: default
+title: hh.Debug.DebugGrid
+description: hh.Debug.DebugGrid houses a few select pages in iframes from Hedwig Hall.
+---
+<!-- DebugGrid 22w13a -->
+<div class="DebugGrid">
+<iframe src="../Debug/Text/?nav=Hidden" id="PageOfText"></iframe>
+  <iframe src="../Clock/?nav=Hidden" id="Clock"></iframe>
+ <iframe src="../Debug/Inputs/?nav=Hidden" id="Inputs"></iframe>
+  <iframe src="../Whiteboard/?nav=Hidden" id="Whiteboard"></iframe>
+  <iframe src="../Debug/Markdown/?nav=Hidden" id="Markdown"></iframe>
+  <iframe src="../SearXRedirect/?nav=Hidden" id="SearXRedirect"></iframe>
+<style>
+.DebugGrid{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: grid;
+  padding: 0px 0px 0px 0px;
+  width: 100vw;
+  height: 100vh;
+  gap: 0px 0px;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-areas:
+    'PageOfText Clock Inputs Whiteboard'
+    'Markdown SearXRedirect Other7 Other8';
+}
+body .DebugGrid div{
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+.DebugGrid iframe{
+  background-color: #314159;
+  border: 1px solid #1F293B;
+}
+#PageOfText{
+  grid-area: PageOfText
+}
+#Clock{
+  grid-area: Clock;
+}
+#Inputs{
+  grid-area: Inputs;
+}
+#Whiteboard{
+  grid-area: Whiteboard;
+}
+#Markdown{
+  grid-area: Markdown;
+}
+#SearXRedirect{
+  grid-area: SearXRedirect;
+}
+iframe{
+  border: 1px solid #1F293B;
+  width: calc(25vw - 2px);
+  height: calc(50vh - 2px);
+}
+#nav #hamburger, #nav #navigation{
+  transition: all 0.5s ease-in-out;
+}
+#nav:not(:hover){
+  transform: translateY(-10mm);
+  opacity: 0.5;
+}
+#nav:not(:hover) #hamburger, #nav:not(:hover) #navigation{
+  opacity: 0
+}
+</style>

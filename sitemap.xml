@@ -1,40 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    <url>
-        <loc>https://hedwighall.github.io/</loc>
-        <lastmod>2022-03-16</lastmod>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://hedwighall.github.io/Clock/</loc>
-        <lastmod>2022-03-16</lastmod>
-        <priority>0.1</priority>
-    </url>
-    <url>
-        <loc>https://hedwighall.github.io/Debug/</loc>
-        <lastmod>2022-03-16</lastmod>
-        <priority>0.0</priority>
-    </url>
-    <url>
-        <loc>https://hedwighall.github.io/Layouts/Default/</loc>
-        <lastmod>2022-03-16</lastmod>
-        <priority>0.0</priority>
-    </url>
-    <url>
-        <loc>https://hedwighall.github.io/SearXRedirect/</loc>
-        <lastmod>2022-03-16</lastmod>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://hedwighall.github.io/Viewer/SVG/</loc>
-        <lastmod>2022-03-16</lastmod>
-        <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://hedwighall.github.io/Whiteboard/</loc>
-        <lastmod>2022-03-16</lastmod>
-        <priority>0.2</priority>
-    </url>
+---
+title: Sitemap
+slug: sitemap
+cache_strategy: none
+response_type: text/xml
+position: 3
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for page in site.pages %}
+  <url>
+    <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
+  </url>
+    {% endfor %}
 </urlset>
