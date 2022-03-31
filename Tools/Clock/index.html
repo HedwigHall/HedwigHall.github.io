@@ -12,7 +12,7 @@ description: hh.Tools.Clock houses a big clock, or it could be a small clock if 
       body {
         width: 100vw;
         height: 100vh;
-        overflow: none;
+        overflow: hidden;
       }
       .ClockDiv {
         min-width: 10vw;
@@ -45,11 +45,10 @@ description: hh.Tools.Clock houses a big clock, or it could be a small clock if 
       }
       .ClockDate{
         text-align: center;
-        font-size: fill;
+        font-size: min(5vh,5vw);
         font-family: var(--HandFont);
         margin: 0 0;
         display: block;
-        font-size: min(5vh,5vw);
         height: fit-content;
         width: fit-content;
         position: fixed;
