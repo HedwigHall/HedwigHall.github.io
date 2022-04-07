@@ -1,16 +1,21 @@
-<!-- ContextMenu.html 22w12a -->
+<!-- ContextMenu.html 22w14a -->
 <ul class="ContextMenu" hidden="">
- <li class="ContextMenuHeader">Title</li>
- <li>
- <label for="TemplateCheckInput">Checkbox Option:	</label>
- <input type="checkbox" id="TemplateCheckInput" class="CheckboxInput" oninput="console.log('Option Checked')">
- </li>
- <li>
- <label for="TemplateColorInput">Color Input:	</label>
- <input type="text" id="TemplateColorInput" class="ColorInput" size="7" maxlength="7" value=" var(--TextColor)" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color" oninput="console.log('Color Input Inputted')"></li>
- <li>
- <label for="TemplateNumberInput">Number Input:	</label>
- <input type="text" id="TemplateNumberInput" class="NumberInput" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number" oninput="console.log('Number Input Inputted')"></li>
+  <li class="ContextMenuHeader">ContextMenu</li>
+  <li class="hr"></li>
+  <li>
+   <label for="TemplateCheckInput">Checkbox Option:	</label>
+    <input type="checkbox" id="TemplateCheckInput" class="CheckboxInput" oninput="console.log('Option Checked')">
+  </li>
+  <li class="hr"></li>
+  <li>
+    <label for="TemplateColorInput">Color Input:	</label>
+    <input type="text" id="TemplateColorInput" class="ColorInput" size="7" maxlength="7" value="#1F293B" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color" oninput="console.log('Color Input Inputted')">
+  </li>
+  <li class="hr"></li>
+  <li>
+   <label for="TemplateNumberInput">Number Input:	</label>
+    <input type="text" id="TemplateNumberInput" class="NumberInput" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number" oninput="console.log('Number Input Inputted')">
+  </li>
 </ul>
 {% capture head %}{{ head }}
 <!-- ContextMenu Head -->
@@ -49,7 +54,7 @@
  border-bottom-left-radius: 12.5px;
  border-bottom-right-radius: 12.5px;
  }
- .ContextMenu > .NumberInput, .ContextMenu > .ColorInput{
+ .ContextMenu li .NumberInput, .ContextMenu li .ColorInput{
  margin: 0px 0px 0px 0px;
  background-color: var(--AltColor);
  border: solid 1px var(--AltColor);
@@ -57,13 +62,13 @@
  -moz-appearance: textfield;
  color: var(--TextColor);
  }
- .ContextMenu > .ColorInput:hover, .ContextMenu > .NumberInput:hover{
+ .ContextMenu li .ColorInput:hover, .ContextMenu li .NumberInput:hover{
  background-color: var(--BackgroundColor);
  border: solid 1px var(--HighlightColor);
  border-radius: 12.5px;
  color: var(--HighlightColor);
  }
- .ContextMenu > .ColorInput:hover, .ContextMenu > .ColorInput:active, .ContextMenu > .NumberInput:hover, .ContextMenu > .NumberInput:active{
+ .ContextMenu li .ColorInput:hover, .ContextMenu li .ColorInput:active, .ContextMenu li .NumberInput:hover, .ContextMenu li .NumberInput:active{
  background-color: var(--BackgroundColor);
  border: solid 1px var(--HighlightColor);
  border-radius: 12.5px;
@@ -123,42 +128,47 @@
  border-color: #ce4159;
  color: var(--TextColor);
  }
- ul li:after {
+ ul li.hr:not([hidden]) {
   content: "";
   display: block;
   background-color: var(--BackgroundColor);
   height: 1px;
   margin: 0px;
-  padding: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
   border: none;
 }
   </style>
   <script>
   window.addEventListener("load", function(){
   function MouseDown(e){
-  if(e.button == 0){
-  if(document.querySelector(".ContextMenu:hover") == null){
-  if(!document.getElementsByClassName("ContextMenu")[0].hidden){
-  document.getElementsByClassName("ContextMenu")[0].hidden = true;
-  }
-  }
-  } else if(e.button == 0){
-  if(document.querySelector(".ContextMenu:hover") == null){
-  if(!document.getElementsByClassName("ContextMenu")[0].hidden){
-  document.getElementsByClassName("ContextMenu")[0].hidden = true;
-  }
-  }
-  } else if(e.button == 2){
-    e.preventDefault();
-    document.getElementsByClassName("ContextMenu")[0].style.left = e.clientX+"px";
-    document.getElementsByClassName("ContextMenu")[0].style.top = e.clientY+"px";
-    document.getElementsByClassName("ContextMenu")[0].hidden = false;
-  }
+    if(document.getElementsByClassName("ContextMenu").length == 1){
+      if(e.button == 0){
+      if(document.querySelector(".ContextMenu:hover") == null){
+      if(!document.getElementsByClassName("ContextMenu")[0].hidden){
+      document.getElementsByClassName("ContextMenu")[0].hidden = true;
+      }
+      }
+      } else if(e.button == 0){
+      if(document.querySelector(".ContextMenu:hover") == null){
+      if(!document.getElementsByClassName("ContextMenu")[0].hidden){
+      document.getElementsByClassName("ContextMenu")[0].hidden = true;
+      }
+      }
+      } else if(e.button == 2){
+      e.preventDefault();
+      document.getElementsByClassName("ContextMenu")[0].style.left = e.clientX+"px";
+      document.getElementsByClassName("ContextMenu")[0].style.top = e.clientY+"px";
+      document.getElementsByClassName("ContextMenu")[0].hidden = false;
+      }
+    }
   };
   document.oncontextmenu = function(e){
    e.preventDefault();
   }
-    document.body.addEventListener("mousedown", MouseDown);
+    DefaultContextMenu = document.body.addEventListener("mousedown", MouseDown);
   })
   </script>
 {% endcapture %}

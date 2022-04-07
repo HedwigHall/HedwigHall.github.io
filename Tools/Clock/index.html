@@ -2,131 +2,137 @@
 layout: default
 title: hh.Tools.Clock
 description: hh.Tools.Clock houses a big clock, or it could be a small clock if you view it on a phone or shrink the window.
+lastmod: 2022-04-06
+priority: 0.5
+version: 22w14a
+head: |
+  <style class="ClockStyle">
+  /*  Clock Stylesheet */
+  body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  }
+  .ClockDiv {
+  min-width: 10vw;
+  width: fit-content;
+  border-radius: 5mm;
+  line-height: 1;
+  padding: 5mm;
+  color: var(--TextColor);
+  border: none;
+  display: block;
+  position: fixed;
+  top: 0vh;
+  left: 0vw;
+  height: 100vh;
+  width: 100vw;
+  }
+  .ClockTime{
+  text-align: center;
+  font-size: 50px;
+  font-family: var(--SansFont);
+  margin: 0 0;
+  display: block;
+  font-size: min(90vh,calc(100vw*7/32));
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  top: 55vh;
+  left: 50vw;
+  transform: translate(-50%,-50%);
+  }
+  .ClockDate{
+  text-align: center;
+  font-size: min(5vh,5vw);
+  font-family: var(--HandFont);
+  margin: 0 0;
+  display: block;
+  height: fit-content;
+  width: fit-content;
+  position: fixed;
+  top: 5vh;
+  left: 50vw;
+  transform: translate(-50%,-50%);
+  }
+  .ClockTime::after{
+  content: attr(seconds);
+  color: var(--AltColor)
+  }
+  #nav{
+  display: none;
+  }
+  noscript{
+  z-index: 1000;
+  color: var(--TextColor);
+  position: absolute;
+  width: 100vw;
+  height: fit-content;
+  text-align: center;
+  top: calc(50vh);
+  transform: translateY(-50%);
+  left: 0px;
+  background-color: var(--AltColor);
+  font-family: var(--SansFont);
+  font-size: min(85vh,calc(100vw*3/64));
+  }
+  </style>
+  <script class="ClockScript">
+  window.addEventListener("load", () => {
+  var CurrentDate = function(){
+  var d = new Date();
+  var pad = function(num){return num.toString().padStart(2, '0')};
+  var datetmp1 = new(Date)
+  var date1 = new Date(datetmp1.getTime());
+  date1.setHours(0, 0, 0, 0);
+  date1.setDate(date1.getDate() + 3 - (date1.getDay() + 6) % 7);
+  var week1 = new Date(date1.getFullYear(), 0, 4);
+  var date2 = new Date(datetmp1.getTime());
+  date2.setDate(date2.getDate() + 3 - (date2.getDay() + 6) % 7);
+  return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())+ " (" + date2.getFullYear().toString().slice(2, 4) + "W" + (1 + Math.round(((date1.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7))+")";
+  };
+  Object.defineProperty(window, 'date', { get: CurrentDate });
+  var CurrentTime = function(){
+  var d = new Date();
+  var pad = function(num){return num.toString().padStart(2, '0')};
+  return pad(d.getHours())+":"+pad(d.getMinutes());
+  };
+  Object.defineProperty(window, 'time', { get: CurrentTime });
+  var CurrentSeconds = function(){
+  var d = new Date();
+  var pad = function(num){return num.toString().padStart(2, '0')};
+  return ":"+pad(d.getSeconds());
+  };
+  Object.defineProperty(window, 'seconds', { get: CurrentSeconds });
+  var CurrentMilliseconds = function(){
+  var d = new Date();
+  return d.getMilliseconds()
+  };
+  Object.defineProperty(window, 'milliseconds', { get: CurrentMilliseconds });
+  document.getElementsByClassName("ClockDiv")[0].getElementsByClassName("ClockDate")[0].innerText = date;
+  document.getElementsByClassName("ClockDiv")[0].getElementsByClassName("ClockTime")[0].innerText = time;
+  document.getElementsByClassName("ClockDiv")[0].getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);
+  document.getElementsByClassName("ClockDiv")[0].hidden = false;
+  setTimeout(setInterval(function(){
+  document.getElementsByClassName("ClockDate")[0].innerText = date;
+  document.getElementsByClassName("ClockTime")[0].innerText = time;
+  document.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);},1000),1000-milliseconds)
+  tmp11 = function() {
+  datetmp1 = new(Date)
+  var date1 = new Date(datetmp1.getTime());
+  date1.setHours(0, 0, 0, 0);
+  date1.setDate(date1.getDate() + 3 - (date1.getDay() + 6) % 7);
+  var week1 = new Date(date1.getFullYear(), 0, 4);
+  var date2 = new Date(datetmp1.getTime());
+  date2.setDate(date2.getDate() + 3 - (date2.getDay() + 6) % 7);
+  datetmp1 = "(" + date2.getFullYear().toString().slice(2, 4) + "W" + (1 + Math.round(((date1.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7))+")";
+  }
+  });
+  </script>
 ---
     <!-- Clock 22w13a-->
     <div class="ClockDiv" hidden="">
     <p class="ClockDate">YYYY-MM-DD</p>
     <p class="ClockTime" seconds=":SS">HH:MM</p>
-    <style class="ClockStyle">
-      /*  Clock Stylesheet */
-      body {
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-      }
-      .ClockDiv {
-        min-width: 10vw;
-        width: fit-content;
-        border-radius: 5mm;
-        line-height: 1;
-        padding: 5mm;
-        color: var(--TextColor);
-        border: none;
-        display: block;
-        position: fixed;
-        top: 0vh;
-        left: 0vw;
-        height: 100vh;
-        width: 100vw;
-      }
-      .ClockTime{
-        text-align: center;
-        font-size: 50px;
-        font-family: var(--SansFont);
-        margin: 0 0;
-        display: block;
-        font-size: min(90vh,calc(100vw*7/32));
-        width: fit-content;
-        height: fit-content;
-        position: fixed;
-        top: 55vh;
-        left: 50vw;
-        transform: translate(-50%,-50%);
-      }
-      .ClockDate{
-        text-align: center;
-        font-size: min(5vh,5vw);
-        font-family: var(--HandFont);
-        margin: 0 0;
-        display: block;
-        height: fit-content;
-        width: fit-content;
-        position: fixed;
-        top: 5vh;
-        left: 50vw;
-        transform: translate(-50%,-50%);
-      }
-      .ClockTime::after{
-        content: attr(seconds);
-        color: var(--AltColor)
-      }
-      #nav{
-        display: none;
-      }
-      noscript{
-        z-index: 1000;
-        color: var(--TextColor);
-        position: absolute;
-        width: 100vw;
-        height: fit-content;
-        text-align: center;
-        top: calc(50vh);
-        transform: translateY(-50%);
-        left: 0px;
-        background-color: var(--AltColor);
-        font-family: var(--SansFont);
-        font-size: min(85vh,calc(100vw*3/64));
-      }
-    </style>
-    <script class="ClockScript">
-      var CurrentDate = function(){
-        var d = new Date();
-        var pad = function(num){return num.toString().padStart(2, '0')};
-        var datetmp1 = new(Date)
-        var date1 = new Date(datetmp1.getTime());
-        date1.setHours(0, 0, 0, 0);
-        date1.setDate(date1.getDate() + 3 - (date1.getDay() + 6) % 7);
-        var week1 = new Date(date1.getFullYear(), 0, 4);
-        var date2 = new Date(datetmp1.getTime());
-        date2.setDate(date2.getDate() + 3 - (date2.getDay() + 6) % 7);
-        return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())+ " (" + date2.getFullYear().toString().slice(2, 4) + "W" + (1 + Math.round(((date1.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7))+")";
-      };
-      Object.defineProperty(window, 'date', { get: CurrentDate });
-      var CurrentTime = function(){
-        var d = new Date();
-        var pad = function(num){return num.toString().padStart(2, '0')};
-        return pad(d.getHours())+":"+pad(d.getMinutes());
-      };
-      Object.defineProperty(window, 'time', { get: CurrentTime });
-      var CurrentSeconds = function(){
-        var d = new Date();
-        var pad = function(num){return num.toString().padStart(2, '0')};
-        return ":"+pad(d.getSeconds());
-      };
-      Object.defineProperty(window, 'seconds', { get: CurrentSeconds });
-      var CurrentMilliseconds = function(){
-        var d = new Date();
-        return d.getMilliseconds()
-      };
-      Object.defineProperty(window, 'milliseconds', { get: CurrentMilliseconds });
-      document.currentScript.parentElement.getElementsByClassName("ClockDate")[0].innerText = date;
-      document.currentScript.parentElement.getElementsByClassName("ClockTime")[0].innerText = time;
-      document.currentScript.parentElement.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);
-      document.currentScript.parentElement.hidden = false;
-      setTimeout(setInterval(function(){
-      document.getElementsByClassName("ClockDate")[0].innerText = date;
-      document.getElementsByClassName("ClockTime")[0].innerText = time;
-      document.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);},1000),1000-milliseconds)
-            tmp11 = function() {
-        datetmp1 = new(Date)
-        var date1 = new Date(datetmp1.getTime());
-        date1.setHours(0, 0, 0, 0);
-        date1.setDate(date1.getDate() + 3 - (date1.getDay() + 6) % 7);
-        var week1 = new Date(date1.getFullYear(), 0, 4);
-        var date2 = new Date(datetmp1.getTime());
-        date2.setDate(date2.getDate() + 3 - (date2.getDay() + 6) % 7);
-        datetmp1 = "(" + date2.getFullYear().toString().slice(2, 4) + "W" + (1 + Math.round(((date1.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7))+")";
-      }
-    </script>
   </div>
   <noscript>Please enable JavaScript to use the clock.</noscript>

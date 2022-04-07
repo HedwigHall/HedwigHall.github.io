@@ -11,6 +11,9 @@ position: 3
     {% for page in site.pages %}
   <url>
     <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
+    <lastmod>{{ page.lastmod }}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>{{ page.priority }}</priority>
   </url>
     {% endfor %}
 </urlset>

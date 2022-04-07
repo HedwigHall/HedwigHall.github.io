@@ -2,6 +2,9 @@
 layout: default
 title: hh.Changelog
 description: hh.Changelog is a log of all the changes made to Hedwig Hall.
+lastmod: 2022-04-07
+priority: 0.0
+version: 22w14a
 permalink: /Changelog/
 ---
 
@@ -16,15 +19,74 @@ and versioning is in the form [Two Digit Year]W[Two Digit Week]\[Unique Letter\]
 - Add styling for HTML tables (markdown support)
 - Add styling for Inputs
 - Add styling for HTML blockquote (markdown support)
-- hh.Notepad
-  - Save text to URL via `Ctrl + S`
-- Add last edited data to the sitemap.
 - F3.html
   - Add a debugging screen.
   - It will be really nice.
 
 ## Unreleased
 - ColorPicker.html
+
+## 22w14a (2022-04-07)
+### Changed
+- [hh.Tools.Notepad]({{ "/Tools/Notepad/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Ctrl+S Functionality
+  - Added Sitemap Frontmatter
+  - Moved scripts and styles to `head: |`
+- [hh.Tools.Whiteboard]({{ "/Tools/Whiteboard/" | prepend: site.baseurl | prepend: site.url }})
+  - Added seperate context menu lines
+  - Added Sitemap Frontmatter
+  - Moved scripts and styles to `head: |`
+- [hh.Home]({{ "/" | prepend: site.baseurl | prepend: site.url }})
+  - Talked about future CSS context menu (but that part's hidden)
+  - Added Sitemap Frontmatter
+- [hh.Viewer.Image]({{ "/Viewer/Image/" | prepend: site.baseurl | prepend: site.url }})
+  - Converted to new site style
+  - Added Sitemap Frontmatter
+  - Moved scripts and styles to `head: |`
+- [hh.Viewer.SVG]({{ "/Viewer/SVG/" | prepend: site.baseurl | prepend: site.url }})
+  - Converted to new site style
+  - Added Sitemap Frontmatter
+  - Moved scripts and styles to `head: |`
+- Nav.html
+- default.html
+- [sitemap.xml]({{ "/sitemap.xml" | prepend: site.baseurl | prepend: site.url }})
+  - Added lastmod
+  - Added changefreq
+  - Added priority
+- ContextMenu.html
+  - Fixed input looks
+  - Separate line `<li>` to remove line at the bottom
+- [hh.Tools.Clock]({{ "/Tools/Clock/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+  - Moved scripts and styles to `head: |`
+- [hh.SearXRedirect]({{ "/SearXRedirect/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+  - Moved scripts and styles to `head: |`
+### Fixed
+- [hh.Debug]({{ "/Debug/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+- [hh.Debug.DebugGrid]({{ "/Debug/DebugGrid/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+- [hh.Debug.Inputs]({{ "/Debug/Inputs/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+- [hh.Debug.Markdown]({{ "/Debug/Markdown/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+- [hh.Debug.MultiGrid]({{ "/Debug/MultiGrid/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+- [hh.Debug.Text]({{ "/Debug/Text/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+- [hh.Fonts]({{ "/Fonts/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+- [hh.Layouts]({{ "/Layouts/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+- [hh.Layouts.Default]({{ "/Layouts/Default/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+- [hh.OldHome]({{ "/OldHome/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+- [hh.Other]({{ "/Other/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
+- [hh.Viewer]({{ "/Viewer/" | prepend: site.baseurl | prepend: site.url }})
+  - Added Sitemap Frontmatter
 
 ## 22w13a (22-03-30)
 ### Added

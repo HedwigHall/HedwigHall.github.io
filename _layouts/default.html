@@ -11,17 +11,20 @@
     <link type="text/plain" rel="author" href="https://hedwighall.github.io/humans.txt" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
     <link rel="manifest" href="/site.webmanifest">
-    {%- include FontsCSS.html -%}
-    {%- include StylesCSS.html -%}
+{%- include FontsCSS.html -%}
+{%- include StylesCSS.html -%}
 {% capture body %}
-      {%- include Nav.html -%}
+{%- include Nav.html -%}
       <div class="Content">
-        {{ content }}
+<!-- {{ page.title }} {{ page.version }}-->
+{{ content }}
       </div>
       {%- include ContextMenu.html -%}
       {%- include F3.html -%}
 {% endcapture %}
-    {{ head }}
+{{ head }}
+<!-- {{ page.title }} Head {{ page.version }}-->
+{{ page.head }}
   </head>
   <body>
     {{ body }}

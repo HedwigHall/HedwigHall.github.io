@@ -2,9 +2,11 @@
 layout: default
 title: hh.Debug.Markdown
 description: hh.Debug.Markdown is example GitHub flavored markdown.
+lastmod: 2022-04-01
+priority: 0.0
+version: 22w13a
 ---
 
-<!-- hh.Debug.Markdown 22w13a -->
 
 # MarkdownHelp
 

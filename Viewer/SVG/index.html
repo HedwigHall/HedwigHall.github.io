@@ -1,54 +1,62 @@
-<!DOCTYPE html>
-<!-- SVG Viewer 22w11a -->
-<!-- TODO: Update this page to fit the style of other pages -->
-<html>
-<head>
-<title>hh.SVGViewer</title>
-</head>
-<body>
-<style>
-body{
+---
+layout: default
+title: hh.Viewer.SVG
+description: hh.Viewer.Image houses a file viewer for images (other than SVG).
+lastmod: 2022-04-06
+priority: 0.5
+version: 22w14a
+head: |
+  <style>
+  #FileViewer{
   text-align: center;
   margin: 0px 0px 0px 0px;
-  background-color: #CEBEA6;
-}
-body > div{
-  text-align: center;
-  margin: 0px 0px 0px 0px;
-}
-body > div > input{
+  }
+  #FileViewer > #FileInput{
   margin: 0px 0px 0px 0px;
   position: relative;
   width: 100vw;
   height: 100vh;
   opacity: 0;
   z-index: 1;
-}
-body > div > p{
+  }
+  #FileViewer > #FileInstructions{
   margin: 0px 0px 0px 0px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  color: #1F293B;
-  font-family: "Architects Daughter";
+  color: var(--TextColor);
+  font-family: var(--HandFont);
   font-size: 10vh;
   z-index: 0;
-}
-</style>
-<div>
-<input type="file">
-<p>Drop SVG Here</p>
-<script>
-document.getElementsByTagName("input")[0]
-.oninput = function(e) {
-console.log(e);
-document.getElementsByTagName("input")[0].files[0].text()
-.then((file) => {
-document.getElementsByTagName("div")[0].outerHTML = file
-})
-}
-</script>
+  }
+  #FileViewer > #FileViewerFile{
+  max-height: calc(100vh - 4px);
+  max-width: calc(100vw - 4px);
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%)
+  }
+  </style>
+  <script>
+  window.addEventListener('load', () => {
+  document.getElementById("FileInput").addEventListener("input", function(e) {
+  console.log(e);
+  document.getElementById("FileInput").files[0].text()
+  .then((file) => {
+  document.getElementById("FileInstructions").outerHTML = file;
+  document.querySelector("#FileViewer > svg").id = "FileViewerFile";
+  })
+  })
+  })
+  </script>
+---
+<!-- hh.Viewer.SVG 22w13j -->
+<div id="FileViewer">
+<input id="FileInput" type="file">
+<p id="FileInstructions">Drop SVG Here</p>
 </div>
-</body>
-</html>
