@@ -4,7 +4,7 @@ title: hh.Tools.Notepad
 description: hh.Tools.Notepad houses a text entry box. It is possible to paste into it.
 lastmod: 2022-04-06
 priority: 0.5
-version: 22w14a
+version: 22w14b
 head: |
   <style>
   #Notepad{
@@ -34,11 +34,13 @@ head: |
   document.getElementById("Notepad").innerText = decodeURIComponent(document.location.hash.slice(1));
   console.info("Loaded Text");
   };
+  document.title = decodeURIComponent(window.location.hash.slice(1,window.location.hash.indexOf("%0A")));
   });
   document.addEventListener('keydown', (e) => {
   if(e.ctrlKey && e.which == 83){
   e.preventDefault();
   document.location.hash = "#"+encodeURIComponent(document.getElementById("Notepad").innerText);
+  document.title = decodeURIComponent(window.location.hash.slice(1,window.location.hash.indexOf("%0A")));
   console.info("Saved Text");
   };
   });
