@@ -2,9 +2,9 @@
 layout: default
 title: hh.Changelog
 description: hh.Changelog is a log of all the changes made to Hedwig Hall.
-lastmod: 2022-04-07
+lastmod: 2022-04-09
 priority: 0.0
-version: 22w14a
+version: 22w14c
 permalink: /Changelog/
 ---
 
@@ -25,6 +25,19 @@ and versioning is in the form [Two Digit Year]W[Two Digit Week]\[Unique Letter\]
 
 ## Unreleased
 - ColorPicker.html
+
+## 22w14c (2022-04-09)
+### Fixed
+- Removed double version numbers
+  - [hh.Tools.Clock]({{ "/Tools/Clock/" | prepend: site.baseurl | prepend: site.url }})
+  - [hh.Tools.Notepad]({{ "/Tools/Notepad/" | prepend: site.baseurl | prepend: site.url }})
+  - [hh.Tools.Whiteboard]({{ "/Tools/Whiteboard/" | prepend: site.baseurl | prepend: site.url }})
+  - [hh.Viewer.SVG]({{ "/Viewer/SVG/" | prepend: site.baseurl | prepend: site.url }})
+
+## 22w14b (2022-04-09)
+### Changed
+- [hh.Tools.Notepad]({{ "/Tools/Notepad/" | prepend: site.baseurl | prepend: site.url }})
+  - Added first line title capabilities
 
 ## 22w14a (2022-04-07)
 ### Changed
