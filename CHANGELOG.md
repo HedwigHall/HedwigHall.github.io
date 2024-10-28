@@ -28,6 +28,10 @@ and versioning is in the form [Two Digit Year]W[Two Digit Week]\[Unique Letter\]
 - hh.service-worker
 - [hh.tools.notepad]({{ "/tools/notepad/" | prepend: site.baseurl | prepend: site.url }})
   - Total markdown support
+## 24w44d (2024-10-28)
+### Changed
+- Renamed folders to the final name.
+  - I dislike capital and lowercase names being treated as the same by programs when talking about folder and file names.
 ## 24w44c (2024-10-28)
 ### Changed
 - Renamed folders to a temp name, so I can get it to commit the names being moved to lowercase
