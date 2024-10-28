@@ -28,6 +28,10 @@ and versioning is in the form [Two Digit Year]W[Two Digit Week]\[Unique Letter\]
 - hh.service-worker
 - [hh.tools.notepad]({{ "/tools/notepad/" | prepend: site.baseurl | prepend: site.url }})
   - Total markdown support
+## 24w44e (2024-10-28)
+### Changed
+- Fixed some unchanged links.
+- Added hh.tools.stopwatch to hh.tools
 ## 24w44d (2024-10-28)
 ### Changed
 - Renamed folders to the final name.

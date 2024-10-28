@@ -8,7 +8,7 @@ version: 24w44a
 ---
 <div class="MultiGrid">
     {% for item in site.pages %}
-      {% if item.url != "/Debug/MultiGrid/" and item.url != "/Debug/DebugGrid/" %}
+      {% if item.url != "/debug/multi-grid/" and item.url != "/debug/debug-grid/" %}
         <iframe src="{{ item.url | prepend: site.baseurl | prepend: site.url }}?nav=Hidden"></iframe>
         {% endif %}
     {% endfor %}
