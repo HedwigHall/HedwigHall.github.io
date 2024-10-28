@@ -1,27 +1,142 @@
 ---
 layout: default
-title: hh.Debug.Inputs
-description: hh.Debug.Inputs contains inputs for styling purposes.
+title: hh.debug.inputs
+description: hh.debug.inputs contains a bunch of inputs for styling purposes.
 lastmod: 2022-04-01
 priority: 0.0
-version: 22w13a
+version: 24w44a
 ---
-<div>
-<li>
-    <label>Checkbox Option: </label>
-    <input type="checkbox" oninput="console.log('Option Checked')">
-  </li>
-  <li>
-    <label>Text Input: </label>
-    <input type="text" value="3Point14159" pattern="[01-9A-Za-z]*" title="a string of alphanumeric characters" oninput="console.log('String Inputted')">
-  </li>
-  <li>
-    <label>Text Input: </label>
-    <input type="text" size="7" maxlength="7" value="#FFFFFF" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color" oninput="console.log('Color Input Inputted')">
-  </li>
-  <li>
-    <label>Number Input: </label>
-    <input type="text" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number" oninput="console.log('Number Input Inputted')">
-  </li>
-</div>
-</div>
+<form>
+  <label for="Checkbox">Normal: </label>
+  <input type="checkbox" id="Checkbox" />
+  <br />
+  <label for="CheckboxC">Checked: </label>
+  <input type="checkbox" checked="" id="CheckboxC" />
+  <br />
+  <label for="CheckboxD">Disabled: </label>
+  <input type="checkbox" disabled="" id="CheckboxD" />
+  <br />
+  <label for="CheckboxCD">Disabled and Checked: </label>
+  <input type="checkbox" checked="" disabled="" id="CheckboxCD" />
+  <br />
+  <label for="Text">Text Input: </label>
+  <input type="text" value="π ≈ 3.14" title="a string" id="Text" />
+  <input type="text" value="Disabled Text Input" title="a string" disabled="" id="DText" />
+  <br />
+  <label for="Number">Number Input: </label>
+  <input type="text" size="4" maxlength="4" placeholder="3.14" pattern="\d+(\.\d+)?" title="a number" id="Number" />
+  <input type="text" size="4" maxlength="4" placeholder="2.71" pattern="\d+(\.\d+)?" title="a number" disabled="" id="NumberD" />
+  <br />
+  <label for="Integer">Integer Input: </label>
+  <input type="number" placeholder="1011" id="Integer" />
+  <input type="number" placeholder="0100" disabled="" id="IntegerD" />
+  <br />
+  <label for="Dropdown">Dropdown: </label>
+  <select id="Dropdown">
+    <option value="ddDisabled" disabled="true" selected="true">Please select a phrase</option>
+    <optgroup label="Introductory Phrases">
+      <option value="ddFirst">First, </option>
+      <option value="ddToBeginWith">To begin with, </option>
+    </optgroup>
+    <optgroup label="Middle Phrases">
+      <option value="ddThen">Then, </option>
+      <option value="ddAnd">And, </option>
+    </optgroup>
+    <optgroup label="Evidence Phrases">
+      <option value="ddForExample">For example, </option>
+      <option value="ddAsStatedBy">As stated by Mr. Author, </option>
+    </optgroup>
+    <optgroup label="Conclusive Phrases">
+      <option value="ddFinally">Finally, </option>
+      <option value="ddInConclusion">In conclusion, </option>
+    </optgroup>
+  </select>
+  <select disabled="" id="DropdownD">
+    <option value="ddd" disabled="true" selected="true">Disabled Dropdown</option>
+  </select>
+  <br />
+  <label for="textAutoComplete">Colors: </label>
+  <input type="text" list="listAutoComplete" name="textAutoComplete" id="textAutoComplete" size="7" maxlength="7" placeholder="#314159" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color" />
+  <datalist id="listAutoComplete">
+    <option value="#314159" />
+    <option value="#1F293B" />
+    <option value="#CEBEA6" />
+    <option value="#6282B2" />
+  </datalist>
+  <br />
+  <input type="radio" id="Radio" name="Radio" value="Normal" />
+  <label for="Radio">Normal</label>
+  <br />
+  <input type="radio" id="RadioC" name="Radio" checked="" value="RadioC" />
+  <label for="RadioC">Checked</label>
+  <br />
+  <input type="radio" id="RadioD" name="RadioD" disabled="" value="RadioD" />
+  <label for="RadioD">Disabled</label>
+  <br />
+  <input type="radio" id="RadioDC" name="RadioD" checked="" disabled="" value="RadioDC" />
+  <label for="RadioDC">Disabled and Checked</label>
+  <br />
+  <input type="color" value="#6282B2" list="listAutoComplete" />
+  <input type="color" value="#CEBEA6" list="listAutoComplete" disabled="" />
+  <br />
+  <label for="Email">Email: </label>
+  <input type="email" placeholder="email@example.com" id="Email" />
+  <br />
+  <label for="Passworld">Passworld: </label>
+  <input type="password" placeholder="password123" id="Password" />
+  <br />
+  <input type="button" value="Input Button" />
+  <input type="button" disabled="" value="Disabled Input Button" />
+  <br />
+  <input type="reset" value="Input Reset" />
+  <input type="reset" disabled="" value="Disabled Reset Button" />
+  <br />
+  <input type="submit" value="Input Submit" />
+  <input type="submit" disabled="" value="Disabled Submit Button" />
+  <br />
+  <button type="button">Button Button</button>
+  <button disabled="" type="button">Disabled Button Button</button>
+  <br />
+  <button type="reset">Button Reset</button>
+  <button disabled="" type="reset">Disabled Button Reset</button>
+  <br />
+  <button type="submit">Button Submit</button>
+  <button disabled="" type="submit">Disabled Button Submit</button>
+  <br />
+  <label for="Hidden">Hidden Input</label>
+  <input type="hidden" value="You can't see me!" id="Hidden" />
+  <br />
+  <label for="File">File: </label>
+  <input type="file" id="File" multiple="true" />
+  <br />
+  <label for="Image">Image Submit Button: </label>
+  <input type="image" src="/pallete.png" id="Image" />
+  <br />
+  <label for="Date">Date: </label>
+  <input type="date" value="3141-05-09" id="Date" />
+  <br />
+  <label for="DateTimeLocal">Datetime-Local: </label>
+  <input type="datetime-local" value="3141-05-09T02:06" id="DateTimeLocal" />
+  <br />
+  <label for="Time">Time: </label>
+  <input type="time" value="03:14" id="Time" />
+  <br />
+  <label for="Month">Month (No FF :{ ): </label>
+  <input type="month" value="1415-03" id="Month" />
+  <br />
+  <label for="Week">Week (No FF :{ ): </label>
+  <input type="week" placeholder="March 1415" value="4159-W31" id="Week" />
+  <br />
+  <label for="Search">Search: </label>
+  <input type="search" placeholder="Search the web... (But not really)" id="Search" />
+  <br />
+  <label for="Range">Range: </label>
+  <input type="range" id="Range" />
+  <br />
+  <label for="Tel">Telephone: </label>
+  <input type="tel" value="(314)-555-0100" id="Tel" />
+  <br />
+  <label for="URL">URL: </label>
+  <input type="url" placeholder="https://hedwighall.github.io/fonts/" id="URL" />
+  <br />
+</form>

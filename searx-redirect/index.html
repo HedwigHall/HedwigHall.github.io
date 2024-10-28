@@ -1,0 +1,166 @@
+---
+layout: default
+title: hh.searx-redirect
+description: hh.searx-redirect houses a redirect service that redirects to a reachable SearX instance.
+lastmod: 2024-10-28
+priority: 0.5
+version: 24w44a
+head: |
+  <link href="/searx-redirect/opensearch.xml" rel="search" title="Random Searx" type="application/opensearchdescription+xml">
+  <script type="text/javascript">
+  var urls;
+  // List of Searx public instances. One per line. Keep formatting intact: '<host>',
+  urls = [
+  'northboot.xyz',
+  's.zhaocloud.net',
+  'search.bus-hit.me',
+  'search.jpope.org',
+  'search.mdosch.de',
+  'search.neet.works',
+  'search.ononoki.org',
+  'search.snopyta.org',
+  /*'search.zzls.xyz',*/
+  'searx-private-search.de',
+  'searx.bar',
+  'searx.be',
+  /*'searx.ebnar.xyz',*/
+  'searx.fmac.xyz',
+  'searx.gnous.eu',
+  /*'searx.mha.fi',*/
+  'searx.mxchange.org',
+  'searx.nakhan.net',
+  'searx.ninja',
+  'searx.prvcy.eu',
+  'searx.pwoss.org',
+  'searx.rasp.fr',
+  'searx.solusar.de',
+  'searx.stuehieyr.com',
+  'searx.theanonymouse.xyz',
+  'searx.tiekoetter.com',
+  /*'searx.tuxcloud.net',*/
+  'searx.tyil.nl',
+  'searx.webheberg.info',
+  'searxng.zackptg5.com',
+  'suche.dasnetzundich.de',
+  'suche.uferwerk.org',
+  'swag.pw',
+  /*'sx.catgirl.cloud',*/
+  'timdor.noip.me/searx',
+  'trovu.komun.org',
+  'www.gruble.de'
+  ];
+  ///// functions
+  var altmode = false;
+  cats = ['general','files','images','videos','it','map','music','news','science','social_media'];
+  function getv(e)
+  {
+  return document.getElementById(e).value;
+  }
+  function doSearx(s)
+  {
+  var ti = s.match(/q=([^&]+)/);
+  if (ti)
+  document.title = 'Random Searx Redirecting... ' + decodeURIComponent(ti[1]);
+  else
+  return false;
+  var rng;
+  rng = Math.floor(Math.random() * urls.length);
+  var query = s.match(/q=.+/);
+  if (query != '')
+  {
+  // testen - lang unicode regex
+  var pref = '&theme=oscar&language=';
+  if (/[\u0400-\u04FF]/g.test(decodeURIComponent(s)))
+  pref += 'ru-RU';
+  else if (/[\u3000-\u303F]|[\u3040-\u309F]|[\u30A0-\u30FF]|[\uFF00-\uFFEF]|[\u4E00-\u9FAF]|[\u2605-\u2606]|[\u2190-\u2195]|\u203B/g.test(decodeURIComponent(s)))
+  pref += 'ja-JP';
+  else if (/[\uAC00-\uD7AF]/g.test(decodeURIComponent(s)))
+  pref += 'ko-KR';
+  else
+  pref += 'en';
+  /* exhibits broken behavior
+  if ((s.indexOf('!') == -1) && (s.replace('&category_general','').indexOf('&category_') == -1))
+  pref += '&engines=google,duckduckgo,qwant,ixquick,startpage'; */
+  window.location.href = 'https://' + urls[rng] + '/search?' + query + pref;
+  }
+  return false;
+  }
+  function makeURI(q)
+  {
+  var uri = document.location.href.match(/[^?#]+/);
+  if (altmode)
+  uri += '#alt';
+  if (q)
+  uri += '#q=' + encodeURIComponent(q);
+  else
+  uri += '#q=%s';
+  var tim = getv('time-range');
+  if (tim != '')
+  uri += '&time_range=' + tim;
+  for (var i=0;i<cats.length;i++)
+  {
+  var catc = document.getElementById('checkbox_' + cats[i]);
+  if (catc.checked)
+  uri += '&' + catc.name + '=on';
+  }
+  document.getElementById('bkmk').href = uri;
+  return uri;
+  }
+  function alte(s)
+  {
+  if (s)
+  {
+  window.altmode = true;
+  document.getElementById('warn').innerHTML = 'This is intended only for older browsers without TLS 1.2 encryption and may be unsafe. <a href="#" onclick="alte(false);">Return</a>';
+  } else {
+  window.altmode = false;
+  document.getElementById('warn').innerHTML = '';
+  }
+  makeURI(false);
+  return false;
+  }
+  ///// main
+  if (window.location.href.indexOf('#alt') != -1)
+  altmode = true;
+  if (window.location.href.indexOf('q=') != -1)
+  doSearx(window.location.href);
+  </script>
+---
+
+<p><font color="red"></font></p><center><font color="red"><b><noscript>This page requires JavaScript. Click <a href="nojs.html">here for non-JS version</a>.</noscript><div id="warn"></div></b></font></center><p></p>
+<form action="javascript:void(0);" onsubmit="doSearx(makeURI(getv('q')));" onclick="makeURI(false);">
+<div id="searchbox">
+
+<table id="qbox" border="0">
+<tbody><tr>
+<td id="qtd">
+<input name="q" id="q" placeholder="Search for..." autocomplete="off" value="" type="search" autofocus="">
+</td>
+<td id="ttd">
+<select name="time_range" id="time-range" class="custom-select form-control">
+<option id="time-range-anytime" value="" selected="selected">Anytime</option>
+<option id="time-range-day" value="day">Last day</option>
+<option id="time-range-week" value="week">Last week</option>
+<option id="time-range-month" value="month">Last month</option>
+<option id="time-range-year" value="year">Last year</option>
+
+</select>
+</td>
+<td id="gtd">
+<button default="" type="submit" id="go">Start search</button>
+</td>
+</tr>
+</tbody></table>
+<input id="checkbox_general" name="category_general" checked="checked" type="checkbox"><label for="checkbox_general">general</label>
+<input id="checkbox_files" name="category_files" type="checkbox"><label for="checkbox_files">files</label>
+<input id="checkbox_images" name="category_images" type="checkbox"><label for="checkbox_images">images</label>
+<input id="checkbox_videos" name="category_videos" type="checkbox"><label for="checkbox_videos">videos</label>
+<input id="checkbox_it" name="category_it" type="checkbox"><label for="checkbox_it">it</label>
+<input id="checkbox_map" name="category_map" type="checkbox"><label for="checkbox_map">map</label>
+<input id="checkbox_music" name="category_music" type="checkbox"><label for="checkbox_music">music</label>
+<input id="checkbox_news" name="category_news" type="checkbox"><label for="checkbox_news">news</label>
+<input id="checkbox_science" name="category_science" type="checkbox"><label for="checkbox_science">science</label>
+<input id="checkbox_social_media" name="category_social media" type="checkbox"><label for="checkbox_social_media">social</label>
+</div>
+</form>
+<a href="https://hedwighall.tk/SearXRedirect/#q=%s&amp;category_general=on" id="bkmk">Bookmark this link</a>

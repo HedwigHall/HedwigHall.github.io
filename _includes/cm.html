@@ -1,0 +1,19 @@
+<!-- cm.html -->
+<ul class="ContextMenu" hidden="">
+  <li class="ContextMenuHeader">ContextMenu</li>
+  <li class="hr"></li>
+  <li>
+   <label for="TemplateCheckInput">Checkbox Option:	</label>
+    <input type="checkbox" id="TemplateCheckInput" class="CheckboxInput" oninput="console.log('Option Checked')">
+  </li>
+  <li class="hr"></li>
+  <li>
+    <label for="TemplateColorInput">Color Input:	</label>
+    <input type="text" id="TemplateColorInput" class="ColorInput" size="7" maxlength="7" value="#1F293B" pattern="#[0-9A-Fa-f]{6}" title="a hexadecimal color" oninput="console.log('Color Input Inputted')">
+  </li>
+  <li class="hr"></li>
+  <li>
+   <label for="TemplateNumberInput">Number Input:	</label>
+    <input type="text" id="TemplateNumberInput" class="NumberInput" size="3" maxlength="3" value="10" pattern="\d+(\.\d+)?" title="a number" oninput="console.log('Number Input Inputted')">
+  </li>
+</ul>

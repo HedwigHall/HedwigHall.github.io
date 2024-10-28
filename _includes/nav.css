@@ -1,0 +1,72 @@
+
+    /* nav.css */
+    :root{
+      font-family: var(--SansFont);
+    }
+      #nav {
+        background-color:  var(--BackgroundColor);
+        color:  var(--TextColor);
+        width: 50vw;
+        height: 10mm;
+        position: fixed;
+        border: 2px solid  var(--TextColor);
+        top: 10px;
+        left: 25vw;
+        border-radius: 5mm;
+        z-index: 100;
+        overflow-y: hidden;
+        overflow-x: visible;
+        scrollbar-width: none;
+      }
+      #hamburger {
+        position: relative;
+        left: 0px;
+        background-color: transparent;
+        border: none;
+        padding: 0px 0px 0px 0px;
+        cursor: pointer
+      }
+    #nav #hamburger {
+      fill:  var(--TextColor);
+      float: left
+    }
+    #nav #hamburger:hover, #nav #hamburger:focus {
+      fill:  var(--HighlightColor);
+    }
+    #nav #hamburger svg {
+      height: 10mm;
+    }
+    #nav #navigation a{
+      position: relative;
+      padding-left: 10px;
+      padding-right: 10px;
+      top: 2.5mm;
+      color:  var(--TextColor);
+    }
+    #nav #navigation a:hover, #nav #navigation a:focus{
+      color:  var(--HighlightColor)
+    }
+    #nav {
+      transition: 0.5s ease-in-out;
+      white-space: nowrap;
+    }
+    #nav.collapsed {
+      width: 10mm;
+      left: 50vw;
+    }
+    @media only print {
+      nav {
+        display: none
+      }
+    }
+    #nav.Hidden{
+      top: -10mm;
+      opacity: 0;
+    }
+    #nav.Unobtrusive:not(:hover){
+      transform: translateY(-10mm);
+      opacity: 0.5;
+    }
+    #nav.Unobtrusive:not(:hover):not(:focus) #hamburger, #nav.Unobtrusive:not(:hover):not(:focus) #navigation{
+      opacity: 0;
+    }

@@ -1,0 +1,18 @@
+<!-- nav.html -->
+<header id="nav">
+  <button id="hamburger" aria-label="Navigation Menu Visibility Toggle">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 16 16">
+      <path d="M3 4h10a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm10 3H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2zm0 5H3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"></path>
+    </svg>
+  </button>
+  <nav id="navigation">
+    {% if include.name %}
+    <a href="https://hedwighall.tk/">Hedwig Hall</a>
+    <a href="{{ include.domain }}">{{ include.name }}</a>
+    {% else %}
+    {% for link in site.data.#nav %}
+    <a href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
+    {% endif %}
+  </nav>
+</header>

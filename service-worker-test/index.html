@@ -1,0 +1,61 @@
+---
+layout: default
+title: hh.serviceworker-test
+description: Please notify me if this page is seen by the public
+lastmod: 2022-10-04
+priority: 0.0
+version: 24w44a
+permalink: /serviceworker-test/
+head: <!-- hh Servers Reached -->
+---
+<p>Please notify me if this page is seen by the public.</p>
+Now go offline and <a href="#" id="refresh">refresh</a>!
+
+Registered ServiceWorker:	<span id="register">Did not register</span>
+Active Controller:	<span id="controller">Did not activate</span>
+
+ServiceWorker logs:
+<div id="log">Here be logs: <br></div>
+
+<button id="clearAndReRegister">View Complete Demo Again</button>
+<script>
+  if (navigator.serviceWorker.controller) {
+    // A ServiceWorker controls the site on load and therefor can handle offline
+    // fallbacks.
+    debug(
+      navigator.serviceWorker.controller.scriptURL +
+      ' (onload)', 'controller'
+    );
+    debug(
+      'An active service worker controller was found, ' +
+      'no need to register'
+    );
+  } else {
+    // Register the ServiceWorker
+    navigator.serviceWorker.register('service-worker.js', {
+      scope: './'
+    }).then(function(reg) {
+      debug(reg.scope, 'register');
+      debug('Service worker change, registered the service worker');
+    });
+  }
+
+  // The refresh link needs a cache-busting URL parameter
+  document.querySelector('#refresh').search = Date.now();
+
+  // Debug helper
+  function debug(message, element, append) {
+    var target = document.querySelector('#' + (element || 'log'));
+    target.textContent = message + ((append) ? ('/n' + target.textContent) : '');
+  }
+
+  // Allow for "replaying" this example
+  document.getElementById('clearAndReRegister').addEventListener('click',
+    function() {
+      navigator.serviceWorker.getRegistration().then(function(registration) {
+        registration.unregister();
+        window.location.reload();
+      });
+    }
+  );
+</script>

@@ -1,32 +1,53 @@
+{% capture body %}
+  {{ content }}
+{% endcapture %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     {% if page.title %}
     <title>{{ page.title }}</title>
     {% endif %}
-      {% if page.description %}
-      <meta name="description" content="{{ page.description }}">
-      {% endif %}
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+    {% endif %}
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <link type="text/plain" rel="author" href="https://hedwighall.github.io/humans.txt" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/plain" rel="author" href="https://hedwighall.tk/humans.txt" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
     <link rel="manifest" href="/site.webmanifest">
-{%- include FontsCSS.html -%}
-{%- include StylesCSS.html -%}
-{% capture body %}
-{%- include Nav.html -%}
-      <div class="Content">
-<!-- {{ page.title }} {{ page.version }}-->
-{{ content }}
-      </div>
-      {%- include ContextMenu.html -%}
-      {%- include F3.html -%}
-{% endcapture %}
+    {{ head }}
+    <style>
+      {%- include styles.css -%}
+      {%- include fonts.css -%}
+      {%- include nav.css -%}
+      {%- include context.css -%}
+      {%- include f3.css -%}
+      {{ css }}
+    </style>
+    <script>
+      window.addEventListener('load', () => {
+      {%- include nav.js -%}
+      {%- include context.js -%}
+      {%- include f3.js -%}
+      {{ js }}
+    })
+    </script>
 {{ head }}
 <!-- {{ page.title }} Head {{ page.version }}-->
 {{ page.head }}
   </head>
   <body>
-    {{ body }}
+    <!--[if lte IE 11]>
+      <div>
+        IE is not supported
+      </div>
+    <![endif]-->
+    {%- include nav.html -%}
+    <main class="Content">
+    <!-- {{ page.title }} {{ page.version }}-->
+        {{ body }}
+    </main>
+    {%- include F3.html -%}
+    {% if cm %}{{ cm }}{% else %}{%- include context.html -%}{% endif %}
   </body>
 </html>

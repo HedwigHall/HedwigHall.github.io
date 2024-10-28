@@ -1,0 +1,81 @@
+/* f3.css */
+input, button, select{
+  --txt: var(--TextColor);
+  --bck: var(--BackgroundColor);
+  --brd: var(--TextColor);
+  --dis: var(--AltColor);
+  --sel: var(--HighlightColor);
+}
+:is(input, button, select):is(:hover, :active, :focus, :focus-visible, :focus-within){
+  --brd: var(--sel);
+}
+:is(input, button, select):invalid{
+  --brd: var(--Red);
+  --txt: var(--Red);
+}
+:is(input, button, select){
+  outline: none;
+}
+input:not([type=image]), button, select{
+font-family: var(--HandFont), cursive, sans-serif, serif;
+margin: 0px 0px 0px 0px;
+background-color: var(--bck);
+border: solid 1px var(--brd);
+border-radius: 12.5px;
+appearance: textfield;
+-moz-appearance: textfield;
+color: var(--txt);
+}
+:is(input:not([type=image]), button, select):disabled{
+border-color: var(--dis);
+color: var(--dis);
+}
+input[type=file]::file-selector-button{
+font-family: var(--HandFont), cursive, sans-serif, serif;
+margin: 0px 0px 0px 0px;
+background-color: var(--bck);
+border: none;
+-moz-appearance: textfield;
+color: var(--txt);
+}
+input:is([type=checkbox], [type=radio]) {
+margin: 0px;
+appearance: none;
+background-color: var(--bck);
+font: inherit;
+color: var(--txt);
+width: 0.75em;
+height: 0.75em;
+border: 1px solid var(--brd);
+border-radius: 0.15em;
+display: inline grid;
+place-content: center;
+outline: none;
+}
+input:is([type=checkbox], [type=radio])::before {
+content: "";
+top: 0.1em;
+left: 0.1em;
+width: 0.5em;
+height: 0.5em;
+border-radius: 0.15em;
+transform: scale(0);
+transform-origin: bottom left;
+background-color: var(--txt);
+}
+input[type=radio]{
+  border-radius: 0.375em;
+}
+input[type=radio]::before{
+  border-radius: 0.25em;
+}
+input:is([type=checkbox], [type=radio]):checked::before {
+transform: scale(1);
+}
+input:is([type=checkbox], [type=radio]):disabled{
+color: var(--dis);
+border-color: var(--dis);
+}
+input:is([type=checkbox], [type=radio]):disabled::before {
+background-color: var(--dis);
+}

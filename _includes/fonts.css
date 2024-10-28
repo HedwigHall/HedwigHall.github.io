@@ -1,0 +1,141 @@
+/* fonts.css */
+/* karla: Main Sans */
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/karla/karla-regular.woff2') format('woff2'),
+       url('/fonts/karla/karla-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Karla';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/karla/karla-italic.woff2') format('woff2'),
+       url('/fonts/karla/karla-italic.woff') format('woff');
+}
+
+/* Architects Daughter: Main Hand */
+@font-face {
+  font-family: 'Architects Daughter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/architects-daughter/architects-daughter-regular.woff2') format('woff2'),
+       url('/fonts/architects-daughter/architects-daughter-regular.woff') format('woff');
+}
+
+/* bitter: Main Serif */
+@font-face {
+  font-family: 'Bitter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/bitter/bitter-regular.woff2') format('woff2'),
+       url('/fonts/bitter/bitter-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Bitter';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/bitter/bitter-italic.woff2') format('woff2'),
+       url('/fonts/bitter/bitter-italic.woff') format('woff');
+}
+
+/* M Plus Rounded 1c: Alt Sans */
+@font-face {
+  font-family: 'M PLUS Rounded 1c';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/m-plus-rounded/m-plus-rounded-regular.woff2') format('woff2'),
+       url('/fonts/m-plus-rounded/m-plus-rounded-regular.woff') format('woff');
+}
+
+/* Klee One: Alt Hand */
+@font-face {
+  font-family: 'Klee One';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('/fonts/klee-one/klee-one-regular.woff2') format('woff2'),
+       url('/fonts/klee-one/klee-one-regular.woff') format('woff');
+}
+
+/* STIX Two Text: Alt Serif */
+@font-face {
+  font-family: 'STIX Two Text';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/stix-two-text/stix-two-text-regular.woff2') format('woff2'),
+       url('/fonts/stix-two-text/stix-two-text-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'STIX Two Text';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/stix-two-text/stix-two-text-italic.woff2') format('woff2'),
+       url('/fonts/stix-two-text/stix-two-text-italic.woff') format('woff');
+}
+
+/* Last Resort HE: Main Last Resort */
+@font-face {
+  font-family: 'Last Resort HE';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/last-resort-he/last-resort-he-regular.ttf') format('truetype');
+}
+
+/* Last Resort: Alt Last Resort */
+@font-face {
+  font-family: 'Last Resort';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/last-resort/last-resort-regular.ttf') format('truetype');
+}
+.Karla {
+  font-family: "Karla", var(--LastResortFont);
+}
+.ArchitectsDaughter{
+  font-family: "Architects Daughter", var(--LastResortFont);
+}
+.Bitter {
+  font-family: "Bitter", var(--LastResortFont);
+}
+.MPLUSRounded1c {
+  font-family: "M PLUS Rounded 1c", var(--LastResortFont);
+}
+.KleeOne {
+  font-family: "Klee One", var(--LastResortFont);
+}
+.STIXTwoText {
+  font-family: "STIX Two Text", var(--LastResortFont);
+}
+.Hand {
+  font-family: var(--HandFont), cursive, sans-serif;
+}
+.Sans {
+  font-family: var(--SansFont), sans-serif;
+}
+.Serif {
+  font-family: var(--SerifFont), serif;
+}
+.HandLR {
+  font-family: var(--HandFont), var(--LastResortFont);
+}
+.SansLR {
+  font-family: var(--SansFont), var(--LastResortFont);
+}
+.SerifLR {
+  font-family: var(--SerifFont), var(--LastResortFont);
+}
+.LastResort {
+  font-family: var(--LastResortFont);
+}

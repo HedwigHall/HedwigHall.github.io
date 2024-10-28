@@ -1,0 +1,42 @@
+---
+layout: default
+title: hh.tools.stopwatch
+description: hh.tools.stopwatch houses a stopwatch that will keep counting, even if it isn't visible.
+lastmod: 2022-04-12
+priority: 0.5
+version: 24w44a
+head: |
+  <script>
+  var StopwatchInterval;
+  var tmp1;
+  var tmp2 = 0;
+  var tmp3 = 0;
+  function StopStopwatch() {
+  tmp2 = (new Date).getTime() - tmp1.getTime();
+  window.clearInterval(StopwatchInterval);
+  tmp3 = tmp2 + tmp3;
+  tmp2 = 0;
+  };
+  function StartStopwatch() {
+  tmp1 = new Date;
+  window.clearInterval(StopwatchInterval);
+  StopwatchInterval = setInterval(AnimateStopwatch, 1);
+  };
+  function ClearStopwatch() {
+  window.clearInterval(StopwatchInterval);
+  tmp3 = 0;
+  tmp2 = 0;
+  document.getElementById("StopwatchTime").innerText = "000:00:00:00.000"
+  };
+  function AnimateStopwatch() {
+  tmp2 = (new Date).getTime() - tmp1.getTime();
+  document.getElementById("StopwatchTime").innerText = ((((tmp2 + tmp3) - (tmp2 + tmp3) % 8.64e7)/8.64e7)+"").padStart(3,"0")+":"+(new Date(tmp2 + tmp3).toISOString().slice(11, -1));
+  };
+  </script>
+  <style>
+  </style>
+---
+<p id="StopwatchTime">000:00:00:00.000</p>
+<button type="button" onclick="StartStopwatch()">StartStopwatch</button>
+<button type="button" onclick="StopStopwatch()">StopStopwatch</button>
+<button type="button" onclick="ClearStopwatch()">ClearStopwatch</button>

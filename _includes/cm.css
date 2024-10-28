@@ -1,0 +1,116 @@
+/* cm.css */
+.ContextMenu{
+  background-color: var(--AltColor);
+  color: var(--TextColor);
+  width: fit-content;
+  position: fixed;
+  border-radius: 12.5px;
+  list-style-type:none;
+  padding: 1px;
+  margin: 0px;
+  font-family: var(--SansFont);
+}
+@media (prefers-color-scheme: light){
+  .ContextMenu, hr{
+    background-color: var(--TextColor);
+  }
+}
+.ContextMenu li{
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: var(--AltColor);
+  font-family: var(--SansFont);
+}
+.ContextMenu li:not(.ContextMenuHeader):hover{
+  background-color: var(--BackgroundColor);
+}
+.ContextMenu li:first-child{
+  border-top-left-radius: 12.5px;
+  border-top-right-radius: 12.5px;
+}
+.ContextMenu li:last-child{
+  border-bottom-left-radius: 12.5px;
+  border-bottom-right-radius: 12.5px;
+}
+.ContextMenu li .NumberInput, .ContextMenu li .ColorInput{
+  margin: 0px 0px 0px 0px;
+  background-color: var(--AltColor);
+  border: solid 1px var(--AltColor);
+  border-radius: 12.5px;
+  -moz-appearance: textfield;
+  color: var(--TextColor);
+}
+.ContextMenu li .ColorInput:hover, .ContextMenu li .NumberInput:hover{
+  background-color: var(--BackgroundColor);
+  border: solid 1px var(--HighlightColor);
+  border-radius: 12.5px;
+  color: var(--HighlightColor);
+}
+.ContextMenu li .ColorInput:hover, .ContextMenu li .ColorInput:active, .ContextMenu li .NumberInput:hover, .ContextMenu li .NumberInput:active{
+  background-color: var(--BackgroundColor);
+  border: solid 1px var(--HighlightColor);
+  border-radius: 12.5px;
+  color: var(--HighlightColor);
+}
+ul.ContextMenu li input.CheckboxInput {
+  margin: 0px;
+  appearance: none;
+  background-color: var(--AltColor);
+  font: inherit;
+  color: var(--TextColor);
+  width: 0.75em;
+  height: 0.75em;
+  border: 1px solid var(--BackgroundColor);
+  border-radius: 0.15em;
+  display: inline grid;
+  place-content: center;
+}
+ul.ContextMenu li input.CheckboxInput::before {
+  content: "";
+  top: 0.1em;
+  left: 0.1em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.15em;
+  transform: scale(0);
+  transform-origin: bottom left;
+  background-color: var(--TextColor);
+}
+ul.ContextMenu li input.CheckboxInput:checked::before {
+  transform: scale(1);
+}
+ul.ContextMenu li input.CheckboxInput:focus {
+  outline: none;
+  outline-offset: max(2px, 0.15em);
+}
+ul.ContextMenu li input.CheckboxInput{
+  background-color: var(--TextColor);
+}
+ul.ContextMenu li:hover input.CheckboxInput{
+  background-color: var(--BackgroundColor);
+  border: 1px solid var(--HighlightColor);
+}
+ul.ContextMenu li input.CheckboxInput{
+  background-color: var(--AltColor);
+  border: 1px solid var(--TextColor);
+}
+body{
+  width: 100vw;
+  height: 100vh;
+}
+ul.ContextMenu li input.CheckboxInput{
+  background-color: var(--AltColor);
+  border: 1px solid var(--TextColor);
+}
+ ul li.hr:not([hidden]) {
+  content: "";
+  display: block;
+  background-color: var(--BackgroundColor);
+  height: 1px;
+  margin: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  border: none;
+}

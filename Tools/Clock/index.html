@@ -1,10 +1,10 @@
 ---
 layout: default
-title: hh.Tools.Clock
-description: hh.Tools.Clock houses a big clock, or it could be a small clock if you view it on a phone or shrink the window.
+title: hh.tools.clock
+description: hh.tools.clock houses a big clock, or it could be a small clock if you view it on a phone or shrink the window.
 lastmod: 2022-04-09
 priority: 0.5
-version: 22w14c
+version: 24w44a
 head: |
   <style class="ClockStyle">
   /*  Clock Stylesheet */
@@ -55,8 +55,7 @@ head: |
   left: 50vw;
   transform: translate(-50%,-50%);
   }
-  .ClockTime::after{
-  content: attr(seconds);
+  .ClockTime .Seconds{
   color: var(--AltColor)
   }
   #nav{
@@ -109,14 +108,15 @@ head: |
   return d.getMilliseconds()
   };
   Object.defineProperty(window, 'milliseconds', { get: CurrentMilliseconds });
-  document.getElementsByClassName("ClockDiv")[0].getElementsByClassName("ClockDate")[0].innerText = date;
-  document.getElementsByClassName("ClockDiv")[0].getElementsByClassName("ClockTime")[0].innerText = time;
-  document.getElementsByClassName("ClockDiv")[0].getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);
+  document.getElementsByClassName("ClockDate")[0].innerText = date;
+  document.getElementsByClassName("ClockTime")[0].childNodes[0].data = time;
+  document.getElementsByClassName("ClockTime")[0].getElementsByClassName("Seconds")[0].childNodes[0].data = seconds;
   document.getElementsByClassName("ClockDiv")[0].hidden = false;
   setTimeout(setInterval(function(){
   document.getElementsByClassName("ClockDate")[0].innerText = date;
-  document.getElementsByClassName("ClockTime")[0].innerText = time;
-  document.getElementsByClassName("ClockTime")[0].setAttribute("seconds",seconds);},1000),1000-milliseconds)
+  document.getElementsByClassName("ClockTime")[0].childNodes[0].data = time;
+  document.getElementsByClassName("ClockTime")[0].getElementsByClassName("Seconds")[0].childNodes[0].data = seconds;
+  },1000),1000-milliseconds)
   tmp11 = function() {
   datetmp1 = new(Date)
   var date1 = new Date(datetmp1.getTime());
@@ -132,6 +132,6 @@ head: |
 ---
     <div class="ClockDiv" hidden="">
     <p class="ClockDate">YYYY-MM-DD</p>
-    <p class="ClockTime" seconds=":SS">HH:MM</p>
+    <p class="ClockTime">HH:MM<span class="Seconds">:SS</span></p>
   </div>
   <noscript>Please enable JavaScript to use the clock.</noscript>

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0"
-                xmlns:html="http://www.w3.org/TR/REC-html40"
-                xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="2.0" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
   <xsl:template match="/">
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,11 +19,13 @@
           body {
             font-family:"Karla",sans-serif;
             font-size:13px;
+              background-color:#E6DED2;
           }
 
           #intro {
-            background-color:#CFEBF7;
-            border:1px #2580B2 solid;
+            background-color:#8CBAFF;
+            border:1px #6282B2 solid;
+            color:#1F293B;
             padding:5px 13px 5px 13px;
             margin:10px;
           }
@@ -46,7 +45,7 @@
           }
 
           tr.high {
-            background-color:whitesmoke;
+            background-color:#CEBEA6;
           }
 
           #footer {
@@ -66,7 +65,8 @@
         </style>
       </head>
       <body>
-        <h1>XML Sitemap</h1>
+        <h1>Sitemap for Hedwig Hall</h1>
+        <p id="intro"><a href="/sitemap.xml">sitemap.xml</a> is a file that tells search engines what should be indexed. For more information, please visit <a href="https://www.sitemaps.org/">https://www.sitemaps.org/</a></p>
         <div id="content">
           <table cellpadding="5">
             <tr style="border-bottom:1px black solid;">

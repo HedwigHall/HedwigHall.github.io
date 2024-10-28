@@ -1,10 +1,10 @@
 ---
 layout: default
-title: hh.Tools.Notepad
-description: hh.Tools.Notepad houses a text entry box. It is possible to paste into it.
-lastmod: 2022-04-09
+title: hh.tools.notepad
+description: hh.tools.notepad houses a text entry box. It is possible to paste into it.
+lastmod: 2024-10-28
 priority: 0.5
-version: 22w14c
+version: 24w44a
 head: |
   <style>
   #Notepad{
@@ -44,6 +44,12 @@ head: |
   console.info("Saved Text");
   };
   });
+  function markdown(){
+    document.getElementById("Notepad").innerHTML = document.getElementById("Notepad").innerHTML
+    .replaceAll("[x]","<input type='checkbox' checked='true' alt='[x]'></input>")
+    .replaceAll("[X]","<input type='checkbox' checked='true' alt='[X]'></input>")
+    .replaceAll("[ ]","<input type='checkbox' alt='[ ]'></input>")
+  }
   </script>
 ---
 <p id="Notepad" contenteditable="true"></p>

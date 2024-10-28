@@ -1,0 +1,130 @@
+/* styles.css */
+  :root{
+
+    --Pi: #314159;
+    --Space: #1F293B;
+    --Sky: #6282B2;
+
+    --Tan: #CEBEA6;
+    --Cream: #E0D6C4;
+    --Brown: #9D7D4D;
+
+    --Red: #CE293B;
+    --Yellow: #CEBE3B;
+    --Green: #1FBE3B;
+    --Cyan: #1FBEA6;
+    --Blue: #1F29A6;
+    --Magenta: #CE29A6;
+    --Orange: #CE823B;
+    --Purple: #6229A6;
+
+    --PaleRed: #CE4159;
+    --PaleYellow: #CEBE59;
+    --PaleGreen: #31BE59;
+    --PaleCyan: #31BEA6;
+    --PaleBlue: #3141A6;
+    --PaleMagenta: #CE41A6;
+    --PaleOrange: #CE8259;
+    --PalePurple: #6241A6;
+
+    --SansFont: "Karla", "M Plus Rounded 1c", sans-serif, serif;
+    --HandFont: "Architects Daughter", "Klee One", cursive, sans-serif, serif;
+    --SerifFont: "Bitter", "STIX Two Text", serif;
+    --LastResortFont: "Last Resort HE", "Last Resort";
+
+    --BackgroundColor: var(--Pi);
+    --AltColor: var(--Space);
+    --HighlightColor: var(--Sky);
+    --TextColor: var(--Tan);
+  }
+@media (prefers-color-scheme: light){
+  :root{
+    --BackgroundColor: var(--Tan);
+    --AltColor: var(--Cream);
+    --HighlightColor: var(--Brown);
+    --TextColor: var(--Pi);
+  }
+}
+  @media only screen {
+    body {
+      background-color: var(--BackgroundColor);
+      color: var(--TextColor);
+    }
+  }
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0 auto;
+    font-family: var(--HandFont), cursive, sans-serif, serif;
+  }
+  body {
+    margin: 0 auto;
+  }
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  ::-webkit-scrollbar-button{
+    background-color: var(--AltColor);
+    color: var(--TextColor);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--TextColor);
+    border-radius: 7.5px;
+    border: 1px solid var(--AltColor);
+  }
+  ::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:focus {
+    background-color: var(--HighlightColor);
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--AltColor);
+  }
+  ::-webkit-scrollbar-track-piece{
+    background-color: var(--AltColor);
+  }
+  ::-webkit-scrollbar-corner {
+    color: var(--TextColor);
+    background-color: var(--BackgroundColor);
+  }
+  a {
+    color: var(--HighlightColor)
+  }
+  .Content {
+    padding-left: 25vw;
+    padding-right: 25vw;
+    padding-top: 15mm;
+    color: var(--TextColor);
+    font-family: var(--HandFont);
+    width: 50vw;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+  .HangingText {
+    text-indent: -36px;
+    padding-left: 36px;
+  }
+  button:focus, a:focus{
+    border-radius: 100vw;
+    outline-color: transparent;
+    outline-style: none;
+    outline-width: 0px;
+    box-shadow: 0px 0px 0px 1px var(--AltColor), 0px 0px 0px 2px var(--HighlightColor), 0px 0px 0px 3px var(--AltColor);
+  }
+
+  body{
+  width: 100vw;
+  height: 100vh;
+  }
+  hr {
+   content: "";
+   display: block;
+   background-color: var(--BackgroundColor);
+   height: 1px;
+   margin: 0px;
+   padding-top: 0px;
+   padding-right: 0px;
+   padding-bottom: 0px;
+   padding-left: 0px;
+   border: none;
+  }
