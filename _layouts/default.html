@@ -20,14 +20,14 @@
       {%- include styles.css -%}
       {%- include fonts.css -%}
       {%- include nav.css -%}
-      {%- include context.css -%}
+      {%- include cm.css -%}
       {%- include f3.css -%}
       {{ css }}
     </style>
     <script>
       window.addEventListener('load', () => {
       {%- include nav.js -%}
-      {%- include context.js -%}
+      {%- include cm.js -%}
       {%- include f3.js -%}
       {{ js }}
     })
@@ -48,6 +48,6 @@
         {{ body }}
     </main>
     {%- include F3.html -%}
-    {% if cm %}{{ cm }}{% else %}{%- include context.html -%}{% endif %}
+    {% if cm %}{{ cm }}{% else %}{%- include cm.html -%}{% endif %}
   </body>
 </html>

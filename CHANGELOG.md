@@ -28,7 +28,11 @@ and versioning is in the form [Two Digit Year]W[Two Digit Week]\[Unique Letter\]
 - hh.service-worker
 - [hh.tools.notepad]({{ "/tools/notepad/" | prepend: site.baseurl | prepend: site.url }})
   - Total markdown support
-## 24w43a (2024-10-24)
+## 24w44b (2024-10-28)
+### Changed
+- layout
+  - I broke them by renaming files.
+## 24w44a (2024-10-28)
 ### Added
 - [hh.tools.stopwatch]({{ "/tools/stopwatch/" | prepend: site.baseurl | prepend: site.url }})
   - It's a stopwatch
