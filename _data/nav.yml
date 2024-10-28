@@ -1,17 +1,17 @@
-- title: Home
+- title: home
   url: /
 
-- title: Clock
-  url: /Tools/Clock/
+- title: clock
+  url: /tools/clock/
 
-- title: Whiteboard
-  url: /Tools/Whiteboard/
+- title: whiteboard
+  url: /tools/whiteboard/
 
-- title: Notepad
-  url: /Tools/Notepad/
+- title: notepad
+  url: /tools/notepad/
 
-- title: Viewer
-  url: /Viewer/
+- title: viewer
+  url: /viewer/
 
-- title: Other
-  url: /Other/
+- title: other
+  url: /other/
