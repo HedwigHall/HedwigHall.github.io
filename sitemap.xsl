@@ -59,7 +59,7 @@
             color:gray;
           }
 
-          a {
+          a, body {
             color:#CEBEA6;
           }
         </style>

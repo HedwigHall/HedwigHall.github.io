@@ -27,21 +27,28 @@ and versioning is in the form [Two Digit Year]w[Two Digit Week]\[Unique Letter\]
 - [hh.tools.notepad]({{ "/tools/notepad/" | prepend: site.baseurl | prepend: site.url }})
   - Total markdown support
 
+## 24w44h (2024-10-28)
+### Fixed
+- I forgot to make all text tan in the sitemap. My bad. That should be fixed now.
+- Resectioned off commits that were done today in the changelog.
 ## 24w44g (2024-10-28)
-### Changed
+### Fixed
 - Improved sitemap styling to match the better dark theme, because that is what the site is designed for.
+### Changed
 - Changed w in changelog description to be lowercase because that's what it is.
 - Merged TODO and Unreleased sections of the changelog, because they were both todo lists.
 ## 24w44f (2024-10-28)
 ### Changed
+- Added a errors folder to facilitate migration from GitHub being the primary site, but will still usually house the latest content.
+### Fixed
 - Corrected links from incorrect domain
 - Corrected more capitalization due to renaming pages to use lowercase to match most of the internet.
 - Changed version to be a global attribute instead of a per page basis
-- Added a errors folder to facilitate migration from GitHub being the primary site, but will still usually house the latest content.
 ## 24w44e (2024-10-28)
 ### Changed
-- Fixed some unchanged links.
 - Added hh.tools.stopwatch to hh.tools
+### Fixed
+- Fixed some unchanged links.
 ## 24w44d (2024-10-28)
 ### Changed
 - Renamed folders to the final name.
@@ -70,12 +77,12 @@ and versioning is in the form [Two Digit Year]w[Two Digit Week]\[Unique Letter\]
 - [hh.fonts]({{ "/fonts/" | prepend: site.baseurl | prepend: site.url }}) and FontsCSS.html
   - Added Last Resort
   - Added Last Resort HE
-- Split ContextMenu.html into context.html, context.css, and context.js
-- Split Nav.html into nav.html, nav.css and nav.js
 - Beginnings of a style for input elements in f3.css
 - [hh.home]({{ "/" | prepend: site.baseurl | prepend: site.url }})
   - Added a marker that shows what instance you are on on the home page
 ### Changed
+- Split ContextMenu.html into context.html, context.css, and context.js
+- Split Nav.html into nav.html, nav.css and nav.js
 - [hh.debug.inputs]({{ "/debug/inputs/" | prepend: site.baseurl | prepend: site.url }})
   - Overhauled it to have more inputs
 - [hh.tools.clock]({{ "/tools/clock/" | prepend: site.baseurl | prepend: site.url }})
