@@ -11,22 +11,27 @@ permalink: /changelog/
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and versioning is in the form [Two Digit Year]W[Two Digit Week]\[Unique Letter\]
+and versioning is in the form [Two Digit Year]w[Two Digit Week]\[Unique Letter\]
 
 
 ## TODO
 - Add styling for HTML tables (markdown support)
-- Add styling for Inputs
+- Finish styling for Inputs
+- Add full othersite support
 - Add styling for HTML blockquote (markdown support)
 - F3.html
   - Contains whatever. It currently houses HTML styling. I haven't touched anything in this in the last year and a half, except to update the version.
-
-## Unreleased
 - color.html
 - hh.viewer.markdown
 - hh.service-worker
 - [hh.tools.notepad]({{ "/tools/notepad/" | prepend: site.baseurl | prepend: site.url }})
   - Total markdown support
+
+## 24w44g (2024-10-28)
+### Changed
+- Improved sitemap styling to match the better dark theme, because that is what the site is designed for.
+- Changed w in changelog description to be lowercase because that's what it is.
+- Merged TODO and Unreleased sections of the changelog, because they were both todo lists.
 ## 24w44f (2024-10-28)
 ### Changed
 - Corrected links from incorrect domain

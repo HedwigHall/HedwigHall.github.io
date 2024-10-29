@@ -23,15 +23,15 @@
           }
 
           #intro {
-            background-color:#8CBAFF;
+            background-color:#1F293B;
             border:1px #6282B2 solid;
-            color:#1F293B;
+            color:#CEBEA6;
             padding:5px 13px 5px 13px;
             margin:10px;
           }
 
           #intro p {
-            line-height:  16.8667px;
+            line-height: 16.8667px;
           }
 
           td {
@@ -45,7 +45,7 @@
           }
 
           tr.high {
-            background-color:#CEBEA6;
+            background-color:#1F293B;
           }
 
           #footer {
@@ -60,7 +60,7 @@
           }
 
           a {
-            color:black;
+            color:#CEBEA6;
           }
         </style>
       </head>
