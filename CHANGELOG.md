@@ -4,7 +4,6 @@ title: hh.changelog
 description: hh.changelog is a log of all the changes made to Hedwig Hall.
 lastmod: 2024-10-28
 priority: 0.0
-version: 24w44a
 permalink: /changelog/
 ---
 
@@ -28,6 +27,12 @@ and versioning is in the form [Two Digit Year]W[Two Digit Week]\[Unique Letter\]
 - hh.service-worker
 - [hh.tools.notepad]({{ "/tools/notepad/" | prepend: site.baseurl | prepend: site.url }})
   - Total markdown support
+## 24w44f (2024-10-28)
+### Changed
+- Corrected links from incorrect domain
+- Corrected more capitalization due to renaming pages to use lowercase to match most of the internet.
+- Changed version to be a global attribute instead of a per page basis
+- Added a errors folder to facilitate migration from GitHub being the primary site, but will still usually house the latest content.
 ## 24w44e (2024-10-28)
 ### Changed
 - Fixed some unchanged links.

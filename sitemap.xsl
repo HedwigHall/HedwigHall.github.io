@@ -19,7 +19,7 @@
           body {
             font-family:"Karla",sans-serif;
             font-size:13px;
-              background-color:#E6DED2;
+              background-color:#314159;
           }
 
           #intro {
